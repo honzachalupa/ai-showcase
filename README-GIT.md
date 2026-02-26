@@ -2,34 +2,6 @@
 
 ## 🚀 Nastavení Git Repository
 
-### 1. Inicializace Git repo
-
-```bash
-# Inicializuj Git (pokud ještě není)
-git init
-
-# Přidej všechny soubory
-git add .
-
-# První commit
-git commit -m "🎉 Initial commit - AI Showcase 2024-2026"
-```
-
-### 2. Vytvoř GitHub repository
-
-```bash
-# Vytvoř repo na GitHubu (https://github.com/new)
-# Název: ai-showcase
-# Description: Kompletní přehled AI development trendů 2024-2026
-
-# Propoj s remote
-git remote add origin https://github.com/TVOJE_USERNAME/ai-showcase.git
-
-# Push
-git branch -M main
-git push -u origin main
-```
-
 ### 3. Nastav GitHub Secrets
 
 Pro automatickou aktualizaci potřebuješ nastavit API klíč:
