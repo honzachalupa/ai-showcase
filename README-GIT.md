@@ -19,9 +19,10 @@ Pro automatickou aktualizaci potřebuješ nastavit API klíč:
 Projekt obsahuje GitHub Actions workflow (`.github/workflows/automatic-update.yml`), který:
 
 1. **Spustí se automaticky** každé 2 týdny (1. a 15. den měsíce) v 9:00 UTC
-2. **Dotáže AI** (GPT-5.3-Codex - nejnovější a nejschopnější model, 5.2.2026) na nejnovější trendy za poslední 2 týdny
+2. **Vyhledá aktuální trendy** pomocí GPT-4o s přístupem k webu
 3. **Aktualizuje soubory:**
-   - `TRENDS.md` - přidá novou sekci s měsíčními trendy
+   - `TRENDS.md` - přidá novou sekci s trendy za poslední 2 týdny
+   - `MODEL-RECOMMENDATIONS.md` - aktualizuje modely a ceny
    - `README.md` - aktualizuje datum
    - `CHANGELOG.md` - přidá changelog entry
 4. **Vytvoří Pull Request** s popisem změn
@@ -39,7 +40,7 @@ Můžeš spustit aktualizaci i manuálně:
 
 ### Co se aktualizuje?
 
-Script `scripts/generate-monthly-update.js` automaticky:
+Script `scripts/generate-automatic-update.js` automaticky:
 
 ✅ **Detekuje nové modely:**
 
@@ -69,7 +70,7 @@ Script `scripts/generate-monthly-update.js` automaticky:
 
 Můžeš upravit:
 
-**Frekvenci aktualizací** (`.github/workflows/monthly-update.yml`):
+**Frekvenci aktualizací** (`.github/workflows/automatic-update.yml`):
 
 ```yaml
 on:
@@ -77,11 +78,11 @@ on:
     # Týdně (každou neděli)
     - cron: "0 9 * * 0"
 
-    # Dvakrát měsíčně (1. a 15. den)
+    # Dvakrát měsíčně (1. a 15. den) - výchozí
     - cron: "0 9 1,15 * *"
 ```
 
-**Prompt pro AI** (`scripts/generate-monthly-update.js`):
+**Prompt pro AI** (`scripts/generate-automatic-update.js`):
 
 ```javascript
 const prompt = `Tvůj custom prompt...`;
@@ -90,12 +91,10 @@ const prompt = `Tvůj custom prompt...`;
 **Model** (`scripts/generate-automatic-update.js`):
 
 ```javascript
-model: 'gpt-5.3-codex',  // Nejnovější a nejschopnější (5.2.2026)
+const MODEL = "gpt-4o"; // GPT-4o s web search capabilities
 // Alternativy:
-// 'o4-mini' - rychlejší, levnější reasoning
-// 'o3' - nejsilnější reasoning (dražší)
-// 'claude-opus-4' - nejlepší pro non-agentic coding
-// 'gemini-2.0-flash' - největší context (2M tokens)
+// 'gpt-4o-mini' - rychlejší, levnější
+// 'o1' - reasoning model (dražší, bez web search)
 ```
 
 ## 📊 Monitoring
@@ -141,7 +140,7 @@ Nastav GitHub notifikace:
 ### ✅ Do
 
 - **Review každý PR** před merge
-- **Testuj lokálně** script před push: `node scripts/generate-monthly-update.js`
+- **Testuj lokálně** script před push: `OPENAI_API_KEY=sk-... node scripts/generate-automatic-update.js`
 - **Backup** důležitých custom změn
 - **Dokumentuj** vlastní úpravy v CHANGELOG
 

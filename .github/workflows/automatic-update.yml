@@ -1,0 +1,79 @@
+name: Automatic AI Trends Update
+
+on:
+  schedule:
+    - cron: "0 9 1,15 * *" # Každé 2 týdny (1. a 15. den měsíce) v 9:00 UTC
+  workflow_dispatch: # Umožňuje manuální spuštění
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-trends:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install openai
+
+      - name: Generate automatic update
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          node scripts/generate-automatic-update.js
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "docs: automatic AI trends update - $(date +'%d.%m.%Y')"
+          git push
+
+      - name: Create Pull Request
+        if: steps.git-check.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: automatic AI trends update - $(date +'%d.%m.%Y')"
+          branch: automated/trends-update-$(date +'%Y-%m-%d')
+          title: "🤖 AI Trends Update - $(date +'%d.%m.%Y')"
+          body: |
+            ## 🤖 Automatická aktualizace AI trendů
+            
+            Tento PR byl automaticky vygenerován GitHub Actions workflow.
+            
+            ### 📝 Změny
+            - Aktualizace TRENDS.md s nejnovějšími trendy za poslední 2 týdny
+            - Aktualizace MODEL-RECOMMENDATIONS.md s novými modely a cenami
+            - Aktualizace README.md s aktuálním datem
+            - Aktualizace CHANGELOG.md
+            
+            ### 🔍 Zkontroluj prosím
+            - Správnost informací
+            - Formátování markdown
+            - Konzistenci s existujícím obsahem
+            
+            ---
+            *Vygenerováno pomocí GPT-5.3-Codex*
+          labels: |
+            automated
+            ai-trends
+            documentation
