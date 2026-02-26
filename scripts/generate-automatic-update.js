@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const MODEL = "gpt-4o"; // Using GPT-4o for web search capabilities
+const MODEL = "gpt-5.2"; // Nejnovější dostupný model (únor 2026)
 
 async function readFile(filePath) {
   try {
