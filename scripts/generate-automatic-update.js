@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const MODEL = "gpt-5.2"; // Nejnovější dostupný model (únor 2026)
+const MODEL = "gpt-5.2";
 
 async function readFile(filePath) {
   try {
@@ -152,7 +152,6 @@ Please provide the updated content for each file. Format your response as JSON:
         },
       ],
       temperature: 0.7,
-      max_tokens: 16000,
       response_format: { type: "json_object" },
     });
 
