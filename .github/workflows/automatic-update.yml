@@ -25,11 +25,16 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install --no-save openai
+        run: |
+          mkdir -p /tmp/ai-trends
+          cd /tmp/ai-trends
+          npm init -y
+          npm install openai
 
       - name: Generate automatic update
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NODE_PATH: /tmp/ai-trends/node_modules
         run: |
           node scripts/generate-automatic-update.js
 
