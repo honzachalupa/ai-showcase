@@ -582,6 +582,209 @@ const result = await anthropic.messages.create({
 
 ---
 
+---
+
+## 📅 Aktualizace Únor 2026
+
+*Přidáno: 26.02.2026 — nejdůležitější novinky za poslední 2 týdny (12.–26. února 2026)*
+
+### 1. Claude Sonnet 4.6 & Opus 4.6 — Nová generace Anthropic modelů
+
+**Kategorie:** modely | **Datum vydání:** 17. února 2026 (Sonnet 4.6), 5. února 2026 (Opus 4.6)
+
+Anthropic vydal dvě nové verze svých vlajkových modelů s výraznými vylepšeními:
+
+**Claude Sonnet 4.6** (17. 2. 2026):
+- Výrazně zlepšené schopnosti pro reasoning a coding oproti Sonnet 3.7
+- Nativní podpora Structured Outputs v Messages API
+- Rychlejší inference než předchůdce
+- Ideální pro každodenní agentic úlohy v dobrém poměru cena/výkon
+
+**Claude Opus 4.6** (5. 2. 2026):
+- **Adaptive thinking** — model se sám rozhoduje, kdy použít rozšířený reasoning
+- **Fast mode** — turbo varianta pro rychlé odpovědi bez plného thinking procesu
+- Kombinace rychlosti a hloubky myšlení v jednom modelu
+
+```typescript
+// Adaptive thinking — model sám volí hloubku reasoning
+const response = await anthropic.messages.create({
+  model: "claude-opus-4-6",
+  max_tokens: 8000,
+  thinking: {
+    type: "auto",  // Nové: automatická volba thinking hloubky
+    budget_tokens: 5000
+  },
+  messages: [{ role: "user", content: "Napiš unit testy pro tuto komponentu..." }]
+});
+```
+
+**Praktický dopad:** Adaptive thinking snižuje latenci o 30–50 % u jednoduchých úloh, zatímco zachovává plnou hloubku reasoning u složitých problémů. Fast mode Opus 4.6 je nyní srovnatelně rychlý se Sonnet 3.7 při zachování kvality Opus třídy.
+
+**Porovnání s předchozím stavem:** Dříve musel developer explicitně zvolit mezi rychlostí (Sonnet) a přesností (Opus). Adaptive thinking tuto dichotomii eliminuje.
+
+---
+
+### 2. Anthropic Automatické Prompt Caching (Top-Level Cache Control)
+
+**Kategorie:** capabilities | **Datum vydání:** 19. února 2026
+
+Anthropic zjednodušil prompt caching — nově funguje automaticky bez ruční konfigurace bloků cache.
+
+**Dříve (ruční caching):**
+```python
+# Muselo se explicitně označit co cachovat
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": velky_kontext,
+                "cache_control": {"type": "ephemeral"}  # Ruční označení
+            }
+        ]
+    }
+]
+```
+
+**Nyní (automatické caching):**
+```python
+# Cache se aktivuje automaticky — žádná konfigurace
+response = await anthropic.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": velky_kontext}]
+    # Anthropic automaticky cachuje opakující se části kontextu
+)
+```
+
+**Praktický dopad:**
+- Nulová konfigurace — caching funguje out-of-the-box
+- Automatická detekce opakujících se částí kontextu
+- 90 % úspora na cache hits stále platí
+- Výrazně snižuje bariéru pro cost-efektivní produkční aplikace
+
+**Porovnání s předchozím stavem:** Ruční caching vyžadoval pochopení struktury promptu a manuální označení cache breakpoints. Automatické caching toto zcela eliminuje.
+
+---
+
+### 3. MCP (Model Context Protocol) — Mainstream Adopce
+
+**Kategorie:** frameworks | **Datum vydání:** 25. února 2026
+
+Anthropic přidal nativní MCP konverzní helpery přímo do svého Python SDK (v0.84.0), což signalizuje mainstream adopci MCP protokolu.
+
+**Nové MCP helpery v Claude SDK:**
+```python
+from anthropic.helpers import mcp
+
+# Konverze MCP nástrojů na Anthropic tool formát
+anthropic_tools = mcp.convert_tools(mcp_tools)
+
+# Konverze MCP promptů
+anthropic_prompts = mcp.convert_prompts(mcp_prompts)
+
+# Konverze MCP resources (dokumenty, soubory)
+anthropic_resources = mcp.convert_resources(mcp_resources)
+```
+
+**Proč je MCP důležitý:**
+- **Standardizovaný protokol** pro komunikaci AI agentů s nástroji a datovými zdroji
+- **Ekosystém MCP serverů** — Git, filesystem, databáze, web search, IDE integrace
+- **Vendor-neutral** — podporují ho Anthropic, Cursor, VS Code, Zed a další
+
+```typescript
+// MCP server integrace v praxi
+import { MCPClient } from "@modelcontextprotocol/sdk/client";
+
+const client = new MCPClient();
+await client.connect("filesystem://./project");  // Přístup k souborům
+
+// AI agent může nyní číst/zapisovat soubory přes standardizovaný protokol
+const files = await client.callTool("list_files", { path: "./src" });
+```
+
+**Praktický dopad:** MCP se stává de facto standardem pro AI tool integrace — jako npm pro JavaScript. Developeři mohou sdílet a znovu používat MCP servery napříč různými AI platformami.
+
+**Porovnání s předchozím stavem:** Dříve každý AI provider měl vlastní formát pro tool calling. MCP unifikuje tento přístup a umožňuje interoperabilitu.
+
+---
+
+### 4. OpenAI Realtime API 1.5 — Nové Audio Modely a WebSocket Streaming
+
+**Kategorie:** modely + capabilities | **Datum vydání:** 23.–24. února 2026
+
+OpenAI vydal nové verze svých realtime modelů a přidal WebSocket podporu pro Responses API.
+
+**Nové modely:**
+- **gpt-realtime-1.5** — vylepšený model pro real-time hlasové interakce
+- **gpt-audio-1.5** — specializovaný model pro audio zpracování
+- Nižší latence, lepší porozumění přirozenému jazyku, kvalitnější syntéza řeči
+
+**WebSockets pro Responses API:**
+```javascript
+// Nová WebSocket integrace pro nízko-latentní streaming
+const ws = await openai.responses.websockets.connect();
+
+ws.on("response.delta", (event) => {
+  console.log("Token:", event.delta);
+});
+
+await ws.send({
+  model: "gpt-4o",
+  input: "Vysvětli mi....",
+  stream: true
+});
+// Výrazně nižší latence než HTTP streaming
+```
+
+**Praktický dopad:**
+- Real-time hlasové AI asistenty s latencí pod 300ms
+- WebSocket streaming snižuje overhead oproti HTTP pro streaming aplikace
+- gpt-audio-1.5 umožňuje sofistikovanější voice bots
+
+**Porovnání s předchozím stavem:** Předchozí Realtime API bylo omezeno na gpt-4o-realtime-preview. Nové modely přinášejí produkční stabilitu a vylepšenou kvalitu.
+
+---
+
+### 5. LangGraph 1.0 — Production Stable s Dynamickými Nástroji
+
+**Kategorie:** frameworks | **Datum vydání:** 19. února 2026
+
+LangGraph dosáhl stabilního produkčního vydání s klíčovými vylepšeními pro real-world nasazení.
+
+**Klíčové novinky v LangGraph 1.0.x:**
+- **ToolRuntime** — dynamická registrace nástrojů za běhu agenta
+- **Sequential interrupt handling** — spolehlivé zpracování přerušení v agentních workflowech
+- **Cron job streaming** — streamování výsledků z plánovaných agentních úloh
+
+```python
+from langgraph.prebuilt import create_react_agent
+from langgraph.types import ToolRuntime
+
+# Dynamická registrace nástrojů podle kontextu
+def get_user_tools(user_id: str) -> list:
+    return load_tools_for_user(user_id)  # Různé nástroje pro různé uživatele
+
+agent = create_react_agent(
+    model,
+    tools=[],  # Prázdné — nástroje se registrují dynamicky
+    tool_runtime=ToolRuntime(tool_provider=get_user_tools)
+)
+
+# Každý uživatel dostane jiné nástroje automaticky
+result = await agent.ainvoke({"messages": [...]}, config={"user_id": "abc123"})
+```
+
+**Praktický dopad:**
+- Multi-tenant agentic aplikace — každý tenant má vlastní sadu nástrojů
+- Bezpečnější izolace mezi uživateli v produkci
+- Snazší A/B testování různých sad nástrojů
+
+**Porovnání s předchozím stavem:** Dříve musely být nástroje definovány staticky při vytvoření agenta. Dynamické nástroje otevírají možnosti pro personalizované agentic zážitky.
+
+---
+
 ## 💡 Závěr
 
 ### Největší posun (2024)

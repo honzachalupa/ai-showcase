@@ -42,7 +42,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - 25% rychlejší než GPT-5.2-Codex
 - Cena: $$$$$
 
-**2. Claude Opus 4** (nejlepší non-agentic)
+**2. Claude Sonnet 4.6** (nové, únor 2026)
+
+- Vylepšená verze Sonnet řady s lepším coding výkonem
+- Native Structured Outputs v Messages API
+- Rychlejší inference, nižší cena než Opus 4
+- Ideální pro agentic workflows v dobrém poměru cena/výkon
+- Cena: $$
+
+**3. Claude Opus 4** (nejlepší non-agentic)
 
 - 95% accuracy na HumanEval
 - 1M token context
@@ -81,7 +89,14 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Streaming support
 - Cena: $$$
 
-**2. Claude Sonnet 3.7** (levnější alternativa)
+**2. Claude Sonnet 4.6** (nové, únor 2026)
+
+- Vylepšená verze Sonnet řady pro chat a konverzace
+- Rychlejší než Opus 4, levnější
+- Prompt caching a automatické cachování kontextu
+- Cena: $$
+
+**3. Claude Sonnet 3.7** (levnější alternativa)
 
 - Rychlejší než Opus 4
 - Stále velmi dobrá kvalita
@@ -122,11 +137,11 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | --------------------- | ---------------- | -------------------- | -------------- |
 | **Complex debugging** | o3               | o4-mini              | DeepSeek R1    |
 | **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -              |
-| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3         |
-| **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4        |
+| **Coding assistant**  | Claude Opus 4    | Claude Sonnet 4.6    | Qwen 3         |
+| **Chatbot**           | GPT-4o           | Claude Sonnet 4.6    | Llama 4        |
 | **Multimodal**        | Gemini 2.0 Flash | GPT-4o               | -              |
 | **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k) |
-| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4        |
+| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 4.6    | Llama 4        |
 
 ## 💰 Cenové srovnání (přibližné)
 
@@ -138,6 +153,8 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | **o1**                | $15    | $60               | 128k               |
 | **o3-mini**           | $4     | $16               | 128k               |
 | **o1-mini**           | $3     | $12               | 128k               |
+| **Claude Opus 4.6**   | $15    | $75               | 1M                 |
+| **Claude Sonnet 4.6** | $3     | $15               | 200k               |
 | **Claude Opus 4**     | $15    | $75               | 1M                 |
 | **Claude Sonnet 3.7** | $3     | $15               | 200k               |
 | **GPT-4o**            | $5     | $15               | 128k               |
@@ -161,8 +178,10 @@ model: "gpt-4o";
 ### Enterprise / Production
 
 ```javascript
-// Coding: Claude Opus 4
-model: "claude-opus-4";
+// Coding: Claude Opus 4 nebo Claude Sonnet 4.6
+model: "claude-opus-4-6";   // Pro komplexní agentic coding
+// nebo
+model: "claude-sonnet-4-6"; // Pro každodenní coding (levnější)
 
 // Chat: GPT-4o
 model: "gpt-4o";
@@ -191,7 +210,7 @@ model: "deepseek-r1:70b";
 
 Tento dokument je automaticky aktualizován každé 2 týdny pomocí GitHub Actions workflow.
 
-**Poslední aktualizace:** 26.2.2026
+**Poslední aktualizace:** 26.02.2026 — přidány Claude Sonnet 4.6, Claude Opus 4.6, aktualizovány cenové tabulky
 
 ## 📚 Další zdroje
 

@@ -1,16 +1,18 @@
 # AI-Assisted Development - Trendy 2025-2026
 
-Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
+Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno 26. února 2026).
 
 ## 🚀 Hlavní trendy
 
 ### 1. **AI Agents s Tool Calling**
 
 - **OpenAI o1** a **o3-mini** - reasoning modely s deep thinking (2025)
-- **Anthropic Claude Opus 4** - průlom v coding capabilities (leden 2026)
+- **Anthropic Claude Opus 4.6** - adaptive thinking a fast mode (únor 2026)
+- **Claude Sonnet 4.6** - vylepšená Sonnet třída pro agentic workflows (únor 2026)
 - **Google Gemini 2.0 Flash** - nejrychlejší multimodální model
 - **Multi-agent orchestration** - autonomní týmy AI agentů
 - **Computer use API** - AI ovládá počítač (Anthropic, prosinec 2025)
+- **MCP (Model Context Protocol)** - standardizovaný protokol pro AI nástroje
 - 📁 Ukázka: `./01-ai-agents/`
 
 ### 2. **AI Coding Assistants - Agentic Era**
