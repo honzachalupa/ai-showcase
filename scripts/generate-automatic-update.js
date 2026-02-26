@@ -1,25 +1,24 @@
-import OpenAI from 'openai';
-import fs from 'fs/promises';
-import path from 'path';
+import fs from "fs/promises";
+import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const MODEL = 'gpt-4o'; // Using GPT-4o for web search capabilities
+const MODEL = "gpt-4o"; // Using GPT-4o for web search capabilities
 
 async function readFile(filePath) {
   try {
-    return await fs.readFile(filePath, 'utf-8');
+    return await fs.readFile(filePath, "utf-8");
   } catch (error) {
     console.error(`Error reading ${filePath}:`, error.message);
-    return '';
+    return "";
   }
 }
 
 async function writeFile(filePath, content) {
   try {
-    await fs.writeFile(filePath, content, 'utf-8');
+    await fs.writeFile(filePath, content, "utf-8");
     console.log(`✅ Updated ${filePath}`);
   } catch (error) {
     console.error(`Error writing ${filePath}:`, error.message);
@@ -27,17 +26,17 @@ async function writeFile(filePath, content) {
 }
 
 async function generateUpdate() {
-  console.log('🤖 Starting automatic AI trends update...\n');
+  console.log("🤖 Starting automatic AI trends update...\n");
 
-  const trendsContent = await readFile('TRENDS.md');
-  const readmeContent = await readFile('README.md');
-  const modelRecsContent = await readFile('MODEL-RECOMMENDATIONS.md');
-  const changelogContent = await readFile('CHANGELOG.md');
+  const trendsContent = await readFile("TRENDS.md");
+  const readmeContent = await readFile("README.md");
+  const modelRecsContent = await readFile("MODEL-RECOMMENDATIONS.md");
+  const changelogContent = await readFile("CHANGELOG.md");
 
-  const currentDate = new Date().toLocaleDateString('cs-CZ', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
+  const currentDate = new Date().toLocaleDateString("cs-CZ", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
   });
 
   const prompt = `You are an AI expert tracking the latest trends in AI-assisted software development.
@@ -90,6 +89,15 @@ ${currentDate}
 - Include proper markdown formatting with emojis
 - Ensure all dates use DD.MM.YYYY format
 
+## CRITICAL: What NOT to change
+- DO NOT remove or modify markdown code fence markers (\`\`\`markdown, \`\`\`, etc.)
+- DO NOT change existing file paths or links
+- DO NOT reformat existing sections
+- DO NOT remove existing content
+- ONLY ADD new sections for recent trends
+- ONLY UPDATE "Last updated" dates
+- ONLY ADD new entries to CHANGELOG
+
 ## Quality Checks
 - Verify all information is accurate and from reliable sources
 - Ensure no duplicate content
@@ -127,39 +135,40 @@ Please provide the updated content for each file. Format your response as JSON:
   "changelog": "updated CHANGELOG.md content"
 }`;
 
-  console.log('🔍 Searching for latest AI trends...\n');
+  console.log("🔍 Searching for latest AI trends...\n");
 
   try {
     const response = await openai.chat.completions.create({
       model: MODEL,
       messages: [
         {
-          role: 'system',
-          content: 'You are an expert AI researcher who tracks the latest developments in AI and machine learning. You have access to current information and can search the web for the latest news.',
+          role: "system",
+          content:
+            "You are an expert AI researcher who tracks the latest developments in AI and machine learning. You have access to current information and can search the web for the latest news.",
         },
         {
-          role: 'user',
+          role: "user",
           content: prompt,
         },
       ],
       temperature: 0.7,
       max_tokens: 16000,
-      response_format: { type: 'json_object' },
+      response_format: { type: "json_object" },
     });
 
     const result = JSON.parse(response.choices[0].message.content);
 
-    console.log('📝 Writing updated files...\n');
+    console.log("📝 Writing updated files...\n");
 
-    await writeFile('TRENDS.md', result.trends);
-    await writeFile('MODEL-RECOMMENDATIONS.md', result.modelRecommendations);
-    await writeFile('README.md', result.readme);
-    await writeFile('CHANGELOG.md', result.changelog);
+    await writeFile("TRENDS.md", result.trends);
+    await writeFile("MODEL-RECOMMENDATIONS.md", result.modelRecommendations);
+    await writeFile("README.md", result.readme);
+    await writeFile("CHANGELOG.md", result.changelog);
 
-    console.log('\n✅ Automatic update completed successfully!');
+    console.log("\n✅ Automatic update completed successfully!");
     console.log(`📊 Tokens used: ${response.usage.total_tokens}`);
   } catch (error) {
-    console.error('❌ Error generating update:', error.message);
+    console.error("❌ Error generating update:", error.message);
     process.exit(1);
   }
 }
