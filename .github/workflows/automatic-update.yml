@@ -26,8 +26,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install --package-lock-only openai
+          mv package.json package.json.bak || true
           npm install openai
+          mv package.json.bak package.json || true
 
       - name: Generate automatic update
         env:
