@@ -1,0 +1,56 @@
+{
+  "name": "ai-showcase",
+  "version": "1.0.0",
+  "description": "Přehled AI trendů ve vývoji SW - funkční ukázky",
+  "type": "module",
+  "scripts": {
+    "demo:agents": "node 01-ai-agents/multi-agent-system.js",
+    "demo:o3": "node 01-ai-agents/openai-o3-reasoning.js",
+    "demo:opus4": "node 01-ai-agents/claude-opus4-computer-use.js",
+    "demo:gemini": "node 01-ai-agents/gemini-2-multimodal.js",
+    "demo:openai": "node 01-ai-agents/openai-structured-outputs.js",
+    "demo:anthropic": "node 01-ai-agents/anthropic-tool-calling.js",
+    "demo:caching": "node 01-ai-agents/prompt-caching-demo.js",
+    "demo:cot": "node 03-prompt-patterns/chain-of-thought.js",
+    "demo:react": "node 03-prompt-patterns/react-pattern.js",
+    "demo:few-shot": "node 03-prompt-patterns/few-shot-dynamic.js",
+    "demo:vercel-ai": "node 07-ai-frameworks/vercel-ai-sdk.js",
+    "demo:ollama": "node 06-local-models/ollama-basic.js",
+    "demo:code-review": "node 04-code-review/ai-code-review.js",
+    "demo:semantic-search": "node 05-context-management/semantic-code-search.js",
+    "demo:2026": "npm run demo:o3 && npm run demo:opus4 && npm run demo:gemini",
+    "demo:all": "npm run demo:agents && npm run demo:cot && npm run demo:react",
+    "update:trends": "node scripts/generate-automatic-update.js"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "openai",
+    "anthropic",
+    "langchain",
+    "langgraph",
+    "ollama",
+    "ai-agents",
+    "prompt-engineering"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^0.1.0",
+    "@ai-sdk/google": "^0.1.0",
+    "@ai-sdk/openai": "^0.1.0",
+    "@anthropic-ai/sdk": "^0.30.0",
+    "@google/generative-ai": "^0.5.0",
+    "ai": "^4.0.0",
+    "ollama": "^0.7.0",
+    "openai": "^5.0.0",
+    "zod": "^3.23.0",
+    "playwright": "^1.45.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
