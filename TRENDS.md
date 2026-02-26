@@ -18,6 +18,167 @@ Chronologický přehled revolučních změn v AI-assisted development od srpna 2
 
 ---
 
+## 📅 Update Únor 2026
+
+Přehled nejvýznamnějších AI trendů za poslední 2 týdny (12.–26. února 2026).
+
+### 1. 🔌 Model Context Protocol (MCP) — Standard pro Připojení AI k Nástrojům
+
+**Anthropic / Open Standard | únor 2026**
+**Kategorie:** `frameworks` `tools`
+
+MCP se stal de facto standardem pro připojení AI modelů k externím nástrojům a datovým zdrojům. Přes **1 000 dostupných integrací** – databáze, IDE, cloud služby, REST API – fungujících přes jediný otevřený protokol.
+
+**Klíčové funkce:**
+- Standardizované tool calling přes JSON-RPC 2.0
+- Bezpečný sandboxed přístup k souborům, databázím a internetu
+- Server/klient architektura – snadná integrace do vlastních nástrojů
+- Nativní podpora v VS Code, JetBrains, Cursor a Windsurf
+
+**Praktický dopad pro developery:**
+- AI asistenti přistupují k lokálním souborům, spouštějí příkazy a volají API bez custom integrace
+- Ekosystém sdílených MCP serverů dostupný přes npm/PyPI
+- Jeden protokol funguje s jakýmkoliv MCP-kompatibilním modelem
+
+**Srovnání se stavem před:**
+
+| Před MCP | S MCP |
+|----------|-------|
+| Proprietární tool calling pro každý AI tool | Jeden standard, tisíce integrací |
+| Custom integrace pro každý zdroj dat | Plug-and-play MCP servery |
+| Vendor lock-in na jeden AI provider | Kompatibilní s Claude, GPT, Gemini i lokálními modely |
+
+---
+
+### 2. 🔬 OpenAI Deep Research — Autonomní Výzkumný Agent
+
+**OpenAI | únor 2026**
+**Kategorie:** `capabilities` `tools`
+
+Plně autonomní výzkumný agent napájený reasoning modelem o3 schopný provádět **vícehodinový multi-step výzkum** – prohledá desítky zdrojů a syntetizuje výsledky do citovaného reportu.
+
+**Klíčové funkce:**
+- Autonomní prohledávání webu (10–100 zdrojů za úkol)
+- Křížová verifikace a kritické zhodnocení zdrojů
+- Strukturované výzkumné reporty s citacemi
+- Dostupný v ChatGPT Pro a přes API
+
+**Praktický dopad pro developery:**
+- Automatická technická rešerše: nové knihovny, security CVE, best practices
+- Competitive analysis pro technická architektonická rozhodnutí
+- Research-backed dokumentace a RFC v minutách
+
+**Srovnání:**
+- **Před:** Manuální research trvající hodiny nebo dny
+- **Nyní:** Úplný výzkumný report za 5–30 minut s automatickými citacemi
+
+---
+
+### 3. 🧠 Claude 3.7 Sonnet — Hybridní Reasoning na Vyžádání
+
+**Anthropic | únor 2026**
+**Kategorie:** `models` `capabilities`
+
+První produkční model s **on-demand přepínáním** mezi rychlým a reasoning módem při zachování ceny Sonnet řady. Přináší reasoning schopnosti bez nutnosti platit za Opus.
+
+**Klíčové funkce:**
+- **Instant mode:** rychlé odpovědi (nízká latence, nízká cena)
+- **Extended thinking mode:** viditelný krok-za-krokem reasoning (10 sec – 20 min)
+- **Budget tokens:** developer kontroluje množství "přemýšlení" → kontrola nákladů
+- Nejlepší poměr cena/výkon pro coding úlohy
+
+```javascript
+// Příklad: Adaptive reasoning dle složitosti
+const response = await anthropic.messages.create({
+  model: "claude-3-7-sonnet",
+  thinking: {
+    type: "enabled",
+    budget_tokens: 10000  // Limituj hloubku reasoning
+  },
+  messages: [{ role: "user", content: "Refactoruj tento algoritmus pro lepší O(n)..." }]
+});
+```
+
+**Praktický dopad:**
+- Jednodušší úlohy: instant responses = nízká cena
+- Komplexní debugging nebo architektura: `thinking: enabled` = nejlepší výsledky
+- Cursor a Windsurf zapínají thinking automaticky dle složitosti promtu
+
+**Srovnání:**
+
+| Dříve | Claude 3.7 Sonnet |
+|-------|-------------------|
+| Výběr mezi Sonnet (rychlý) nebo Opus (chytrý) | Jeden model, adaptive reasoning |
+| Reasoning pouze v drahých modelech | Reasoning dostupný za cenu Sonnet |
+| Opaque "black box" výstup | Viditelný reasoning chain |
+
+---
+
+### 4. 🎯 "Vibe Coding" — Nové Vývojové Paradigma
+
+**Trend | leden–únor 2026**
+**Kategorie:** `tools` `capabilities`
+
+Programování čistě přes přirozený jazyk – developer **popisuje záměr**, AI kompletně implementuje. Popularizováno Andrejem Karpathym jako dominantní způsob rychlého prototypování v roce 2026.
+
+**Klíčové vlastnosti:**
+- Celé feature implementace z jednoho přirozeného popisu
+- Iterativní upřesnění ve větách: *"tohle zrychlí"*, *"přidej error handling"*, *"udělej to responzivní"*
+- Zero context switching – developer zůstává v myšlenkovém toku, nekopíruje kód
+- Nejlepší nástroje: **Cursor Composer**, **GitHub Copilot Workspace**, **Replit Agent**
+
+**Praktický dopad pro developery:**
+- Prototypy z hodin na minuty
+- Senioři tráví čas architekturou a reviewem místo implementací boilerplate
+- Junioři implementují komplexní features nad svou úrovní
+- 5–10× rychlejší MVP development ve startupech
+
+**Typický Vibe Coding workflow:**
+```
+1. "Vytvoř React komponentu pro výběr dat s validací"
+2. → AI implementuje kompletní komponentu s testy
+3. "Uprav styl, ať to vypadá jako shadcn"
+4. → AI aktualizuje styling
+5. "Přidej loading state a error boundary"
+6. → AI doplní edge cases
+```
+
+**Srovnání:**
+- **Před:** autocomplete → copy-paste → manuální psaní → debugování
+- **Nyní:** popis záměru → AI implementuje → developer reviewuje a iteruje
+
+---
+
+### 5. ⚡ Gemini 2.0 Pro — Reasoning Přišel do Google Ekosystému
+
+**Google DeepMind | únor 2026**
+**Kategorie:** `models` `capabilities`
+
+Gemini 2.0 Pro přináší **extended thinking** schopnosti do Google AI ekosystému s plnou integrací do Vertex AI, Firebase Genkit a Google Workspace.
+
+**Klíčové funkce:**
+- Extended thinking mode (viditelný reasoning chain)
+- 2M token context window zachován z Gemini 2.0 Flash
+- Nativní integrace s Google Drive, Docs a Sheets
+- Nejlepší multimodální reasoning (text + obraz + kód + video)
+
+**Praktický dopad pro developery:**
+- Google Cloud uživatelé mají enterprise reasoning model bez migrace
+- Vertex AI: enterprise-grade deployment s SLA a bezpečnostními zárukami
+- Firebase Genkit: jednoduché nasazení reasoning do mobilních a webových aplikací
+- Zdarma v Google AI Studio (s limity) pro experimentování
+
+**Srovnání s konkurencí (únor 2026):**
+
+| Model | Reasoning | Context | Multimodal | Cena |
+|-------|-----------|---------|------------|------|
+| Claude 3.7 Sonnet | ✅ On-demand | 200k | ❌ | $$ |
+| OpenAI o3-mini | ✅ Nativní | 128k | ✅ | $$ |
+| Gemini 2.0 Pro | ✅ Extended | 2M | ✅ | $$ |
+| DeepSeek R1 | ✅ Open-source | 64k | ❌ | Free |
+
+---
+
 # ČÁST 1: Základy (2024)
 
 ## 🎯 Od Autocomplete k Agentic Coding (2024)

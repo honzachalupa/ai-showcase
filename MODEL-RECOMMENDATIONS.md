@@ -58,7 +58,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ### Multimodal (Vision, Audio, Video)
 
-**1. Gemini 2.0 Flash** (nejlepší)
+**1. Gemini 2.0 Pro** (nejlepší reasoning + multimodal)
+
+- Extended thinking mode
+- 2M token context window
+- Native vision, audio, video
+- Integrace s Google Workspace a Vertex AI
+- Cena: $$
+
+**2. Gemini 2.0 Flash** (nejrychlejší)
 
 - 2M token context (největší)
 - Native vision, audio, video
@@ -66,7 +74,7 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Zdarma pro developery (s limity)
 - Cena: $ / Free tier
 
-**2. GPT-4o** (alternativa)
+**3. GPT-4o** (alternativa)
 
 - Dobrý vision support
 - Audio input/output
@@ -83,8 +91,10 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 **2. Claude Sonnet 3.7** (levnější alternativa)
 
+- Hybridní reasoning: instant + extended thinking on-demand
 - Rychlejší než Opus 4
-- Stále velmi dobrá kvalita
+- Stále velmi dobrá kvalita pro coding
+- Budget tokens: kontrola nákladů na reasoning
 - Prompt caching
 - Cena: $$
 
@@ -122,10 +132,12 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | --------------------- | ---------------- | -------------------- | -------------- |
 | **Complex debugging** | o3               | o4-mini              | DeepSeek R1    |
 | **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -              |
-| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3         |
+| **Coding assistant**  | Claude Opus 4    | Claude Sonnet 3.7    | Qwen 3         |
+| **Hybrid reasoning**  | Claude Sonnet 3.7| o4-mini              | DeepSeek R1    |
 | **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4        |
-| **Multimodal**        | Gemini 2.0 Flash | GPT-4o               | -              |
+| **Multimodal**        | Gemini 2.0 Pro   | GPT-4o               | -              |
 | **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k) |
+| **Autonomní research**| Deep Research    | o3                   | -              |
 | **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4        |
 
 ## 💰 Cenové srovnání (přibližné)
@@ -141,6 +153,7 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | **Claude Opus 4**     | $15    | $75               | 1M                 |
 | **Claude Sonnet 3.7** | $3     | $15               | 200k               |
 | **GPT-4o**            | $5     | $15               | 128k               |
+| **Gemini 2.0 Pro**    | $3.5   | $10.50            | 2M                 |
 | **Gemini 2.0 Flash**  | $0.075 | $0.30             | 2M                 |
 | **DeepSeek R1**       | Free   | Free              | 64k                |
 | **Llama 4**           | Free   | Free              | 128k               |

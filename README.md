@@ -1,11 +1,13 @@
 # AI-Assisted Development - Trendy 2025-2026
 
-Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
+Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno 26. února 2026).
 
 ## 🚀 Hlavní trendy
 
 ### 1. **AI Agents s Tool Calling**
 
+- **Model Context Protocol (MCP)** — open standard pro připojení AI k nástrojům (únor 2026) 🆕
+- **OpenAI Deep Research** — autonomní výzkumný agent s o3 (únor 2026) 🆕
 - **OpenAI o1** a **o3-mini** - reasoning modely s deep thinking (2025)
 - **Anthropic Claude Opus 4** - průlom v coding capabilities (leden 2026)
 - **Google Gemini 2.0 Flash** - nejrychlejší multimodální model
@@ -24,7 +26,9 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 ### 3. **Prompt Engineering 2.0**
 
-- **Extended Thinking** - viditelné reasoning (o1, Claude Opus 4)
+- **"Vibe Coding"** — programování čistě přes přirozený jazyk (únor 2026) 🆕
+- **Extended Thinking** - viditelné reasoning (o1, Claude Opus 4, Claude 3.7 Sonnet)
+- **Hybrid Reasoning** - on-demand přepínání instant/thinking (Claude 3.7 Sonnet) 🆕
 - **Prompt optimization AI** - AI vylepšuje vlastní prompty
 - **Constitutional AI** - self-correcting prompts
 - **Meta-prompting** - prompty generující prompty
