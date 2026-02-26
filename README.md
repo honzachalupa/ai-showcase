@@ -1,6 +1,6 @@
 # AI-Assisted Development - Trendy 2025-2026
 
-Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
+Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno 26. února 2026).
 
 ## 🚀 Hlavní trendy
 
@@ -8,15 +8,16 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 - **OpenAI o1** a **o3-mini** - reasoning modely s deep thinking (2025)
 - **Anthropic Claude Opus 4** - průlom v coding capabilities (leden 2026)
-- **Google Gemini 2.0 Flash** - nejrychlejší multimodální model
+- **Google Gemini 2.0 Pro** - nejsilnější multimodální model, GA únor 2026 🆕
+- **GitHub Copilot Agent Mode** - autonomní řešení issues, GA únor 2026 🆕
 - **Multi-agent orchestration** - autonomní týmy AI agentů
 - **Computer use API** - AI ovládá počítač (Anthropic, prosinec 2025)
 - 📁 Ukázka: `./01-ai-agents/`
 
 ### 2. **AI Coding Assistants - Agentic Era**
 
-- **Cursor Composer Mode** - autonomní multi-file refactoring
-- **GitHub Copilot Workspace** - od issue k PR automaticky
+- **Cursor 2.0** - Multi-agent IDE s Background Agents, GA únor 2026 🆕
+- **GitHub Copilot Agent Mode** - autonomní multi-step coding a PR creation 🆕
 - **Devin AI** - plně autonomní AI software engineer (2025)
 - **Replit Agent** - build celé aplikace z promptu
 - **v0.dev** - Vercel's AI web builder (production-ready)
@@ -69,12 +70,13 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 ### 8. **Open-Source Coding Models**
 
+- **Mistral Codestral 2** - překonává Claude Sonnet 3.7 na SWE-bench (únor 2026) 🆕
 - **OpenCode** - open-source alternativa k GitHub Copilot (2025)
 - **StarCoder 2** - 15B parametrů, 600+ jazyků
 - **CodeGemma** - Google's open coding model
 - **WizardCoder** - fine-tuned Llama pro coding
 - **Phind CodeLlama** - optimalizovaný pro search + code
-- � Ukázka: `./08-open-source-models/`
+- 📁 Ukázka: `./08-open-source-models/`
 
 ### 9. **AI Skills & Capabilities**
 

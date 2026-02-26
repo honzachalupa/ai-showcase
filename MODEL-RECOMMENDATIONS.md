@@ -1,6 +1,6 @@
 # Doporučené AI Modely (Únor 2026)
 
-**Poslední aktualizace:** 26. února 2026
+**Poslední aktualizace:** 26. února 2026 *(automatická aktualizace)*
 
 Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use case.
 
@@ -49,7 +49,14 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Computer Use API
 - Cena: $$$$
 
-**3. GPT-4o** (balanced)
+**3. Mistral Codestral 2** (nejlepší open-weight, 20. února 2026)
+
+- 72% na SWE-bench (překonává Claude Sonnet 3.7)
+- Fill-in-the-middle pro code completion
+- Apache 2.0 licence, self-hosted
+- Cena: Free / self-hosted
+
+**4. GPT-4o** (balanced)
 
 - Rychlejší než GPT-4 Turbo
 - Multimodal capabilities
@@ -58,7 +65,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ### Multimodal (Vision, Audio, Video)
 
-**1. Gemini 2.0 Flash** (nejlepší)
+**1. Gemini 2.0 Pro** (nejsilnější, 13. února 2026)
+
+- 2M token context (největší ze všech modelů)
+- Native vision, audio, video
+- Deep research + Google Search integrace
+- Dostupný přes AI Studio a API
+- Cena: $$
+
+**2. Gemini 2.0 Flash** (nejrychlejší)
 
 - 2M token context (největší)
 - Native vision, audio, video
@@ -66,7 +81,7 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Zdarma pro developery (s limity)
 - Cena: $ / Free tier
 
-**2. GPT-4o** (alternativa)
+**3. GPT-4o** (alternativa)
 
 - Dobrý vision support
 - Audio input/output
@@ -118,33 +133,35 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ## 📊 Srovnávací tabulka
 
-| Use Case              | Nejlepší volba   | Levnější alternativa | Open-source    |
-| --------------------- | ---------------- | -------------------- | -------------- |
-| **Complex debugging** | o3               | o4-mini              | DeepSeek R1    |
-| **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -              |
-| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3         |
-| **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4        |
-| **Multimodal**        | Gemini 2.0 Flash | GPT-4o               | -              |
-| **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k) |
-| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4        |
+| Use Case              | Nejlepší volba   | Levnější alternativa | Open-source        |
+| --------------------- | ---------------- | -------------------- | ------------------ |
+| **Complex debugging** | o3               | o4-mini              | DeepSeek R1        |
+| **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -                  |
+| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Mistral Codestral 2 |
+| **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4            |
+| **Multimodal**        | Gemini 2.0 Pro   | Gemini 2.0 Flash     | -                  |
+| **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k)     |
+| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4            |
 
 ## 💰 Cenové srovnání (přibližné)
 
-| Model                 | Model  | Input (1M tokens) | Output (1M tokens) | Context |
-| --------------------- | ------ | ----------------- | ------------------ | ------- |
-| **GPT-5.3-Codex**     | $25    | $100              | 128k               |
-| **o4-mini**           | $3     | $12               | 128k               |
-| **o3**                | $20    | $80               | 128k               |
-| **o1**                | $15    | $60               | 128k               |
-| **o3-mini**           | $4     | $16               | 128k               |
-| **o1-mini**           | $3     | $12               | 128k               |
-| **Claude Opus 4**     | $15    | $75               | 1M                 |
-| **Claude Sonnet 3.7** | $3     | $15               | 200k               |
-| **GPT-4o**            | $5     | $15               | 128k               |
-| **Gemini 2.0 Flash**  | $0.075 | $0.30             | 2M                 |
-| **DeepSeek R1**       | Free   | Free              | 64k                |
-| **Llama 4**           | Free   | Free              | 128k               |
-| **Qwen 3**            | Free   | Free              | 32k                |
+| Model                    | Input (1M tokens) | Output (1M tokens) | Context |
+| ------------------------ | ----------------- | ------------------ | ------- |
+| **GPT-5.3-Codex**        | $25               | $100               | 128k    |
+| **o4-mini**              | $3                | $12                | 128k    |
+| **o3**                   | $20               | $80                | 128k    |
+| **o1**                   | $15               | $60                | 128k    |
+| **o3-mini**              | $4                | $16                | 128k    |
+| **o1-mini**              | $3                | $12                | 128k    |
+| **Claude Opus 4**        | $15               | $75                | 1M      |
+| **Claude Sonnet 3.7**    | $3                | $15                | 200k    |
+| **GPT-4o**               | $5                | $15                | 128k    |
+| **Gemini 2.0 Pro**       | $1.25             | $5                 | 2M      |
+| **Gemini 2.0 Flash**     | $0.075            | $0.30              | 2M      |
+| **Mistral Codestral 2**  | Free              | Free               | 32k     |
+| **DeepSeek R1**          | Free              | Free               | 64k     |
+| **Llama 4**              | Free              | Free               | 128k    |
+| **Qwen 3**               | Free              | Free               | 32k     |
 
 ## 🎯 Doporučení podle projektu
 
@@ -191,7 +208,7 @@ model: "deepseek-r1:70b";
 
 Tento dokument je automaticky aktualizován každé 2 týdny pomocí GitHub Actions workflow.
 
-**Poslední aktualizace:** 26.2.2026
+**Poslední aktualizace:** 26.2.2026 *(automatická aktualizace)*
 
 ## 📚 Další zdroje
 

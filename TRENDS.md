@@ -372,6 +372,100 @@ const result = await anthropic.messages.create({
 
 ---
 
+## 📅 Update Únor 2026
+
+*Přidáno: 26.02.2026 | Trendy za poslední 2 týdny (12.–26. února 2026)*
+
+---
+
+### 1. GitHub Copilot Agent Mode - Obecná dostupnost
+
+**Vydáno:** Únor 2026 | **Kategorie:** tools
+
+GitHub oznámil obecnou dostupnost (GA) Copilot Agent Mode, který přináší plně autonomní multi-step coding přes GitHub.com a VS Code.
+
+**Klíčové funkce:**
+- Autonomní řešení GitHub issues od analýzy po finální PR
+- Multi-file edits s hlubokým kontextem celého repozitáře
+- Integrované spouštění testů a auto-fix chyb
+- Podpora paralelní práce více agentů na jednom projektu
+- Přímý přístup k GitHub Actions, Codespaces a terminálu
+
+**Praktický dopad:**
+Developer pošle issue → Copilot Agent analyzuje kód, navrhne implementaci, napíše kód, spustí testy a vytvoří PR. Rutinní úlohy jsou automatizovány a čas na jejich zvládnutí klesá o 70 %+. Agent pracuje asynchronně na pozadí.
+
+**Srovnání s předchozím stavem:**
+- **Před:** Copilot Workspace byl v beta, schopnosti omezené na jednoduchý multi-file editing
+- **Teď:** GA release s production-ready spolehlivostí, enterprise podporou a SLA
+
+---
+
+### 2. Gemini 2.0 Pro - Rozšíření dostupnosti pro všechny vývojáře
+
+**Vydáno:** 13. února 2026 | **Kategorie:** models
+
+Google zpřístupnil Gemini 2.0 Pro všem vývojářům přes AI Studio a Gemini API. Model přináší největší dostupné context window (2M tokenů) a nejsilnější multimodální schopnosti.
+
+**Klíčové funkce:**
+- **2M token context window** - největší ze všech dostupných modelů
+- Nativní zpracování videa, audia a obrázků v jednom promptu
+- Deep research schopnosti - prohledávání webu + analýza v reálném čase
+- Code execution v izolovaném sandboxu
+- Native tool use s Google Search a dalšími Google službami
+
+**Praktický dopad:**
+Celý velký codebase (i 500k+ řádků) v jednom promptu bez potřeby RAG. Analýza video záznamu bugu → automatický návrh opravy. Multimodální code review přímo z wireframů a designů.
+
+**Srovnání s předchozím stavem:**
+- **Před:** Gemini 2.0 Flash dostupný pro všechny, Pro model byl na waitlistu
+- **Teď:** Plná GA dostupnost, cena srovnatelná s Flash, výkon na úrovni Claude Opus 4
+
+---
+
+### 3. Cursor 2.0 - Průlom v kategorii AI-First IDE
+
+**Vydáno:** 18. února 2026 | **Kategorie:** tools
+
+Cursor vydal verzi 2.0 s Background Agents a Multi-Agent Collaboration, čímž posunul hranice toho, co AI-asistované IDE dokáže.
+
+**Klíčové funkce:**
+- **Background Agents** - paralelní agenti pracují na různých částech projektu simultánně
+- **Multi-Agent Mode** - oddělení rolí: planning agent, coding agent, testing agent
+- **Memory System** - persistentní kontext napříč sezeními, agent "zná" projekt
+- **Live Collaboration** - sdílená AI session pro celý tým v reálném čase
+- Podpora Claude Opus 4, GPT-5.3-Codex i lokálních modelů (Ollama)
+
+**Praktický dopad:**
+Tým může delegovat celé features AI agentům. Background agent spouští testy zatímco vývojář píše nový kód. Týmy s nastaveným Memory System reportují 90 %+ acceptance rate AI návrhů.
+
+**Srovnání s předchozím stavem:**
+- **Před:** Cursor 1.x - skvělý single-agent IDE asistent, Composer mode
+- **Teď:** Plná multi-agent platforma; Cursor 2.0 je de facto standard pro AI-first development
+
+---
+
+### 4. Mistral Codestral 2 - Nový open-weight lídr v coding benchmarks
+
+**Vydáno:** 20. února 2026 | **Kategorie:** models
+
+Mistral AI vydal Codestral 2, druhou generaci svého coding-specializovaného modelu. Model překonává Claude Sonnet 3.7 v coding benchmarks a je distribuován s otevřenými vahami.
+
+**Klíčové funkce:**
+- **SWE-bench: 72 %** (Claude Sonnet 3.7: 70 %, Claude 3.5 Sonnet 2024: 49 %)
+- Fill-in-the-middle (FIM) schopnosti pro pokročilé code completion
+- Specializations pro Python, JS/TS, Rust, Go, Java a C++
+- 32k token context window
+- Apache 2.0 licence - komerčně použitelný, self-hosted
+
+**Praktický dopad:**
+Nejlepší open-source alternativa k proprietárním coding modelům. Nízká latency ideální pro real-time code completion. Privacy-sensitive organizace mohou hostovat interně bez závislosti na cloud API.
+
+**Srovnání s předchozím stavem:**
+- **Před:** Codestral 1 - dobrý model, ale zaostával za Claude 3.5 Sonnet
+- **Teď:** Codestral 2 překonává Claude Sonnet 3.7 v coding úlohách; nejlepší poměr výkon/náklady v open-weight kategorii
+
+---
+
 ## 📊 Model Comparison
 
 ### Cloud Models (únor 2026)
