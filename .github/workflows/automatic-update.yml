@@ -50,14 +50,19 @@ jobs:
           git commit -m "docs: automatic AI trends update - $(date +'%d.%m.%Y')"
           git push
 
+      - name: Get current date
+        if: steps.git-check.outputs.changes == 'true'
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
       - name: Create Pull Request
         if: steps.git-check.outputs.changes == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "docs: automatic AI trends update - $(date +'%d.%m.%Y')"
-          branch: automated/trends-update-$(date +'%Y-%m-%d')
-          title: "🤖 AI Trends Update - $(date +'%d.%m.%Y')"
+          commit-message: "docs: automatic AI trends update"
+          branch: automated/trends-update-${{ steps.date.outputs.date }}
+          title: "🤖 AI Trends Update - ${{ steps.date.outputs.date }}"
           body: |
             ## 🤖 Automatická aktualizace AI trendů
 
