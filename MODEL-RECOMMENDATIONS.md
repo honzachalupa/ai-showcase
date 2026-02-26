@@ -1,6 +1,6 @@
 # Doporučené AI Modely (Únor 2026)
 
-**Poslední aktualizace:** 26. února 2026
+**Poslední aktualizace:** 26.02.2026
 
 Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use case.
 
@@ -42,7 +42,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - 25% rychlejší než GPT-5.2-Codex
 - Cena: $$$$$
 
-**2. Claude Opus 4** (nejlepší non-agentic)
+**2. Claude Sonnet 4.6** (19. února 2026) — **NOVÉ**
+
+- Hybridní reasoning: standard + extended thinking dle složitosti
+- 2× rychlejší než Claude Opus 4 pro každodenní úlohy
+- 200k token context, 92% HumanEval
+- Nejlepší poměr cena/výkon v Anthropic portfoliu
+- Cena: $$
+
+**3. Claude Opus 4** (nejlepší non-agentic)
 
 - 95% accuracy na HumanEval
 - 1M token context
@@ -58,7 +66,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ### Multimodal (Vision, Audio, Video)
 
-**1. Gemini 2.0 Flash** (nejlepší)
+**1. Gemini 2.0 Pro Experimental** (14. února 2026) — **NOVÉ**
+
+- 2M token context s nativní reasoning podporou
+- Grounded Reasoning: AI cituje zdroje ve svém reasoning chainu
+- Native code execution sandbox
+- Kombinace multimodal + reasoning v jednom modelu
+- Cena: $$
+
+**2. Gemini 2.0 Flash** (nejlepší)
 
 - 2M token context (největší)
 - Native vision, audio, video
@@ -97,7 +113,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ### Local / On-Device
 
-**1. Llama 4** (405B)
+**1. DeepSeek-V3 Ultra** (21. února 2026) — **NOVÉ**
+
+- 685B parametrů (MoE), aktivní ~37B na token
+- Překonává Claude Opus 4 na SWE-bench (78 %)
+- Apache 2.0 licence, komerčně použitelný
+- Kvantizovaná verze (Q4) běží na 2× H100 nebo Mac Studio M4 Ultra
+- Cena: Free
+
+**2. Llama 4** (405B)
 
 - GPT-4 level quality
 - Plně open-source
@@ -118,15 +142,16 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ## 📊 Srovnávací tabulka
 
-| Use Case              | Nejlepší volba   | Levnější alternativa | Open-source    |
-| --------------------- | ---------------- | -------------------- | -------------- |
-| **Complex debugging** | o3               | o4-mini              | DeepSeek R1    |
-| **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -              |
-| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3         |
-| **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4        |
-| **Multimodal**        | Gemini 2.0 Flash | GPT-4o               | -              |
-| **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k) |
-| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4        |
+| Use Case              | Nejlepší volba      | Levnější alternativa | Open-source         |
+| --------------------- | ------------------- | -------------------- | ------------------- |
+| **Complex debugging** | o3                  | o4-mini              | DeepSeek R1         |
+| **Agentic coding**    | GPT-5.3-Codex       | o4-mini              | -                   |
+| **Coding assistant**  | Claude Opus 4       | Claude Sonnet 4.6 🆕 | DeepSeek-V3 Ultra 🆕|
+| **Chatbot**           | GPT-4o              | Claude Sonnet 4.6 🆕 | Llama 4             |
+| **Multimodal**        | Gemini 2.0 Pro 🆕   | Gemini 2.0 Flash     | -                   |
+| **Large context**     | Gemini 2.0 (2M)     | Claude Opus 4 (1M)   | Llama 4 (128k)      |
+| **Cost-sensitive**    | Gemini 2.0 Flash    | Claude Sonnet 4.6 🆕 | DeepSeek-V3 Ultra 🆕|
+| **On-premise**        | DeepSeek-V3 Ultra 🆕| Llama 4              | Qwen 3              |
 
 ## 💰 Cenové srovnání (přibližné)
 
@@ -139,9 +164,12 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | **o3-mini**           | $4     | $16               | 128k               |
 | **o1-mini**           | $3     | $12               | 128k               |
 | **Claude Opus 4**     | $15    | $75               | 1M                 |
+| **Claude Sonnet 4.6** 🆕 | $2.50 | $10             | 200k               |
 | **Claude Sonnet 3.7** | $3     | $15               | 200k               |
 | **GPT-4o**            | $5     | $15               | 128k               |
+| **Gemini 2.0 Pro Exp** 🆕 | $7 | $21              | 2M                 |
 | **Gemini 2.0 Flash**  | $0.075 | $0.30             | 2M                 |
+| **DeepSeek-V3 Ultra** 🆕 | Free | Free             | 128k               |
 | **DeepSeek R1**       | Free   | Free              | 64k                |
 | **Llama 4**           | Free   | Free              | 128k               |
 | **Qwen 3**            | Free   | Free              | 32k                |

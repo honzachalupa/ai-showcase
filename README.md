@@ -1,6 +1,6 @@
 # AI-Assisted Development - Trendy 2025-2026
 
-Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
+Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno 26.02.2026).
 
 ## 🚀 Hlavní trendy
 
@@ -8,7 +8,9 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 - **OpenAI o1** a **o3-mini** - reasoning modely s deep thinking (2025)
 - **Anthropic Claude Opus 4** - průlom v coding capabilities (leden 2026)
+- **Claude Sonnet 4.6** - hybridní reasoning, 2× rychlejší než Opus 4 (19.02.2026) 🆕
 - **Google Gemini 2.0 Flash** - nejrychlejší multimodální model
+- **Google Gemini 2.0 Pro Experimental** - reasoning + multimodal (14.02.2026) 🆕
 - **Multi-agent orchestration** - autonomní týmy AI agentů
 - **Computer use API** - AI ovládá počítač (Anthropic, prosinec 2025)
 - 📁 Ukázka: `./01-ai-agents/`
@@ -17,6 +19,7 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 - **Cursor Composer Mode** - autonomní multi-file refactoring
 - **GitHub Copilot Workspace** - od issue k PR automaticky
+- **GitHub Copilot Agent Mode GA** - obecná dostupnost pro Business/Enterprise (17.02.2026) 🆕
 - **Devin AI** - plně autonomní AI software engineer (2025)
 - **Replit Agent** - build celé aplikace z promptu
 - **v0.dev** - Vercel's AI web builder (production-ready)
@@ -51,11 +54,13 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 ### 6. **Local AI Models - Production Ready**
 
+- **DeepSeek-V3 Ultra** - 685B MoE, překonává Claude Opus 4 na coding (21.02.2026) 🆕
 - **Llama 4** (Meta, prosinec 2025) - GPT-4 level, open-source
 - **DeepSeek R1** - reasoning model, open-source (leden 2026)
 - **Qwen 3** - nejlepší open-source coding model
 - **On-device AI** - Apple MLX, NVIDIA TensorRT-LLM
 - **Quantization** - 4-bit modely s 90% accuracy
+- **Ollama 2.0** - OpenAI-kompatibilní API, multi-GPU, model versioning (12.02.2026) 🆕
 - 📁 Ukázka: `./06-local-models/`
 
 ### 7. **AI-First Frameworks & Platforms**

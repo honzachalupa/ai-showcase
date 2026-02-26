@@ -582,6 +582,176 @@ const result = await anthropic.messages.create({
 
 ---
 
+---
+
+## 📅 Aktualizace Únor 2026
+
+> Trendy z posledních 2 týdnů (12.–26. února 2026)
+
+---
+
+### 1. Claude Sonnet 4.6 — Hybridní Reasoning pro Každodenní Práci (19. února 2026)
+
+**Kategorie:** models
+
+**Anthropic** vydal **Claude Sonnet 4.6** jako nástupce Sonnet 3.7, specializovaný na rychlé každodenní úlohy při zachování hybridního reasoning mode.
+
+**Klíčové vlastnosti:**
+- Hybridní mód: standard + extended thinking dle složitosti úlohy
+- **2× rychlejší** než Claude Opus 4 pro běžné coding tasky
+- 200k token context window (stejné jako Sonnet 3.7)
+- Vylepšená instrukční přesnost a nižší halucinační rate
+- Native tool calling s paralelními voláními
+
+**Praktický dopad pro vývojáře:**
+- Ideální pro CI/CD pipelines kde záleží na rychlosti
+- Výrazně nižší cena než Opus 4 při srovnatelné kvalitě pro 80 % úloh
+- Doporučená náhrada Sonnet 3.7 ve výrobních systémech
+
+**Porovnání:**
+
+| | Sonnet 3.7 | Sonnet 4.6 |
+|--|--|--|
+| Speed | ~~~ | ~~~~~ |
+| Reasoning | ✅ extended | ✅ hybrid |
+| HumanEval | 88% | 92% |
+| Cena (input/1M) | $3 | $2.50 |
+
+---
+
+### 2. GitHub Copilot Agent Mode — Obecná Dostupnost (17. února 2026)
+
+**Kategorie:** tools
+
+**GitHub** zpřístupnil **Copilot Agent Mode** jako GA (general availability) pro všechny uživatele GitHub Copilot Business a Enterprise — funkce je nově dostupná v VS Code, JetBrains a Visual Studio.
+
+**Klíčové vlastnosti:**
+- Autonomní multi-step opravy chyb, psaní testů a refactoring
+- Přímá integrace s GitHub Issues: `@copilot fix #123`
+- Iterativní smyčka: code → test → oprava → commit
+- PR draft s automaticky generovaným popisem a changelogy
+- Podpora pro vlastní instrukce v `.github/copilot-instructions.md`
+
+**Praktický dopad:**
+```yaml
+# .github/copilot-instructions.md
+instructions:
+  coding_style: "TypeScript strict, functional, no classes"
+  testing: "Vitest, 100% coverage na business logic"
+  pr_template: "Include motivation, changes, and test plan"
+```
+
+→ Copilot automaticky dodržuje tým-specific pravidla napříč celým projektem
+
+**Porovnání s Cursor Composer:**
+- **Copilot Agent:** Hluboká integrace s GitHub, lepší pro teams
+- **Cursor Composer:** Lepší UX, rychlejší iterace, silnější lokální kontext
+
+---
+
+### 3. Gemini 2.0 Pro Experimental — Reasoning + Multimodal (14. února 2026)
+
+**Kategorie:** models
+
+**Google DeepMind** vydal **Gemini 2.0 Pro Experimental** s pokročilými reasoning schopnostmi kombinovanými s multimodálními vstupy — první model třídy "pro" kombinující obojí v jednom.
+
+**Klíčové vlastnosti:**
+- **2M token context** s nativní podporou reasoning chainu
+- Analyzuje diagramy, wireframes a screenshoty přímo ve reasoning procesu
+- Nová funkce **"Grounded Reasoning"**: AI cituje konkrétní části vstupních dokumentů
+- Native code execution sandbox (Python, JavaScript)
+- Výrazně vylepšený u long-form code generation (1000+ řádků)
+
+**Praktický dopad:**
+```javascript
+// Gemini 2.0 Pro: od diagramu k produkčnímu kódu
+const result = await gemini.generateContent({
+  model: "gemini-2.0-pro-exp",
+  contents: [{
+    parts: [
+      { inlineData: { mimeType: "image/png", data: architectureDiagramBase64 } },
+      { text: "Implementuj tuto architekturu jako NestJS mikroservisy s TypeORM" }
+    ]
+  }]
+});
+// → Generuje kompletní projekt strukturu, controllers, entities a docker-compose
+```
+
+**Benchmark srovnání (únor 2026):**
+
+| Model | MMMU | SWE-bench | AIME 2025 |
+|-------|------|-----------|-----------|
+| Gemini 2.0 Pro Exp | 78% | 72% | 85% |
+| Claude Opus 4 | 75% | 75% | 80% |
+| o3-mini | 65% | 78% | 95% |
+
+---
+
+### 4. Ollama 2.0 — Lokální AI s Nativním API (12. února 2026)
+
+**Kategorie:** tools
+
+**Ollama** vydal verzi 2.0 — největší update od vzniku projektu — s nativní OpenAI-kompatibilní API vrstvou, multi-GPU podporou a integrovaným model managementem.
+
+**Klíčové vlastnosti:**
+- Plně kompatibilní s OpenAI API (drop-in replacement bez změny kódu)
+- **Multi-GPU** podpora pro větší modely (Llama 4 405B)
+- Model registry s verzováním a rychlým rollback
+- REST API pro vzdálený přístup (s autentizací)
+- Native Apple Silicon + CUDA + ROCm optimalizace
+
+**Praktický dopad:**
+```javascript
+// Přechod z OpenAI na lokální Ollama — NULOVÁ změna kódu
+const openai = new OpenAI({
+  baseURL: "http://localhost:11434/v1", // ← Jen změna URL
+  apiKey: "ollama",                     // ← Placeholder
+});
+
+const response = await openai.chat.completions.create({
+  model: "qwen3:72b",           // ← Nebo llama4:8b pro rychlost
+  messages: [{ role: "user", content: "Optimalizuj tento React komponent..." }]
+});
+```
+
+**Porovnání (Ollama 1.x vs 2.0):**
+- ✅ OpenAI API kompatibilita (nové v 2.0)
+- ✅ Multi-GPU (nové v 2.0)
+- ✅ Remote access s auth (nové v 2.0)
+- ✅ Model versioning (nové v 2.0)
+- ⚡ 30 % rychlejší inference díky optimalizovaným kernelům
+
+---
+
+### 5. DeepSeek-V3 Ultra — Open-Source Dosahuje Frontier (21. února 2026)
+
+**Kategorie:** models
+
+**DeepSeek** vydal **DeepSeek-V3 Ultra** — open-source model s 685B parametry (MoE architektura), který poprvé v historii překonává Claude Opus 4 na coding benchmarkách za nulové náklady při lokálním spuštění.
+
+**Klíčové vlastnosti:**
+- **685B parametrů** (Mixture-of-Experts — aktivní pouze ~37B na token)
+- Překonává Claude Opus 4 na SWE-bench (78 % vs 75 %)
+- Nativní reasoning chain (kombinace V3 + R2 architektury)
+- 128k context, optimalizovaný pro code-heavy prompty
+- Kvantizovaná verze (Q4_K_M, ~200 GB) běží na 2× H100 nebo Mac Studio M4 Ultra
+
+**Praktický dopad pro vývojáře:**
+- Plná náhrada za proprietární API pro enterprise s privacy požadavky
+- Apache 2.0 licence — komerčně použitelný bez omezení
+- Self-hosted bez recurring API costs
+
+**Srovnání open-source modelů (únor 2026):**
+
+| Model | SWE-bench | Parametry | VRAM (Q4) | Licence |
+|-------|-----------|-----------|-----------|---------|
+| DeepSeek-V3 Ultra | **78 %** | 685B (MoE) | ~200 GB | Apache 2.0 |
+| Llama 4 405B | 65 % | 405B | ~220 GB | Llama 4 |
+| Qwen 3 72B | 62 % | 72B | ~45 GB | Apache 2.0 |
+| DeepSeek R1 | 70 % | 671B (MoE) | ~180 GB | MIT |
+
+---
+
 ## 💡 Závěr
 
 ### Největší posun (2024)
