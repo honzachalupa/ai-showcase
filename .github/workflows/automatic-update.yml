@@ -12,7 +12,7 @@ permissions:
 jobs:
   update-trends:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,10 +22,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
-        run: npm install openai
+        run: npm install --no-save openai
 
       - name: Generate automatic update
         env:
@@ -57,20 +57,20 @@ jobs:
           title: "🤖 AI Trends Update - $(date +'%d.%m.%Y')"
           body: |
             ## 🤖 Automatická aktualizace AI trendů
-            
+
             Tento PR byl automaticky vygenerován GitHub Actions workflow.
-            
+
             ### 📝 Změny
             - Aktualizace TRENDS.md s nejnovějšími trendy za poslední 2 týdny
             - Aktualizace MODEL-RECOMMENDATIONS.md s novými modely a cenami
             - Aktualizace README.md s aktuálním datem
             - Aktualizace CHANGELOG.md
-            
+
             ### 🔍 Zkontroluj prosím
             - Správnost informací
             - Formátování markdown
             - Konzistenci s existujícím obsahem
-            
+
             ---
             *Vygenerováno pomocí GPT-5.3-Codex*
           labels: |
