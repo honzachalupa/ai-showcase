@@ -14,6 +14,7 @@ Chronologický přehled revolučních změn v AI-assisted development od srpna 2
 2025 Q3: Llama 4, OpenCode
 2025 Q4: Computer Use API, Gemini 2.0
 2026 Q1: Claude Opus 4, o3-mini, DeepSeek R1
+2026 Q1: Claude 3.7 Sonnet, Gemini 2.5 Pro, MCP standard, Vibe Coding
 ```
 
 ---
@@ -579,6 +580,189 @@ const result = await anthropic.messages.create({
 - [Ollama Library](https://ollama.ai/library)
 - [OpenCode GitHub](https://github.com/opencode)
 - [StarCoder 2](https://huggingface.co/bigcode/starcoder2)
+
+---
+
+## 📅 Update Únor 2026 (12. – 26. 2. 2026)
+
+Přehled nejdůležitějších AI novinek z posledních 2 týdnů.
+
+---
+
+### 1. Claude 3.7 Sonnet – Reasoning pro každého (únor 2026)
+
+**Kategorie:** models | **Datum:** únor 2026
+
+**Anthropic** vydal nový model **Claude 3.7 Sonnet** jako přímý nástupce Claude 3.5 Sonnet. Poprvé přináší **extended thinking mode** do rychlého/levného modelu – dříve dostupné jen v Opus 4.
+
+**Klíčové vlastnosti:**
+- Extended thinking mode: viditelný reasoning proces i v „levném" modelu
+- 3× rychlejší než Claude Opus 4 při 70 % ceny
+- 200k token context window (zachováno)
+- Výrazně lepší coding benchmarks než Claude 3.5 Sonnet
+- Podpora **Computer Use API**
+- Prompt caching s 90% slevou na opakovaný kontext
+
+**Dopad pro vývojáře:**
+- Reasoning model dostupný i pro startupy a side projekty (cena $$)
+- Výborný pro code review, debugging, multi-step refactoring
+- Ideální alternativa k o3-mini pro coding úlohy
+
+**Srovnání:**
+
+| | Claude 3.5 Sonnet | Claude 3.7 Sonnet | Claude Opus 4 |
+|---|---|---|---|
+| Reasoning | ❌ | ✅ extended | ✅ extended (delší) |
+| Rychlost | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
+| Coding | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Cena (1M input) | $3 | $3 | $15 |
+
+---
+
+### 2. Gemini 2.5 Pro – Rekordní 10M Context Window (únor 2026)
+
+**Kategorie:** models | **Datum:** únor 2026
+
+**Google DeepMind** oznámil **Gemini 2.5 Pro** – vlajkovou loď pro enterprise a výzkum. Největší průlom: context window **10 milionů tokenů** (5× více než Gemini 2.0 Flash).
+
+**Klíčové vlastnosti:**
+- **10M token context window** – celý velký monorepo v jednom promptu
+- Native video input s pochopením dlouhých videí (hodiny)
+- Vylepšené multimodal reasoning (diagramy, audio, screen recordings)
+- Grounding ve Google Search v reálném čase
+- Enterprise SLA a data residency
+
+**Praktický dopad:**
+```javascript
+// Příklad: analýza celého repo (10M tokenů = ~7,5 milionu řádků kódu)
+const response = await generativeAI.getGenerativeModel({
+  model: "gemini-2.5-pro",
+  generationConfig: { maxOutputTokens: 8192 }
+}).generateContent({
+  contents: [{ role: "user", parts: [
+    { text: "Analyzuj celé toto repo a navrhni architektonické změny:" },
+    { text: entireCodebaseAsString } // Až 10M tokenů
+  ]}]
+});
+```
+
+**Srovnání context oken:**
+- 2024: 128k tokens (GPT-4 Turbo)
+- 2025: 200k tokens (Claude 3.5), 2M (Gemini 2.0)
+- 2026: **10M tokens (Gemini 2.5 Pro)** 🚀
+
+---
+
+### 3. Model Context Protocol (MCP) – Nový Průmyslový Standard (únor 2026)
+
+**Kategorie:** frameworks | **Datum:** únor 2026 (mainstream adoption)
+
+**Anthropic** původně vydal **Model Context Protocol (MCP)** v listopadu 2024 jako open standard pro propojení AI modelů s externími nástroji. V únoru 2026 se stal de facto standardem – adoptovaly ho OpenAI, Google, Microsoft a 500+ nástrojů.
+
+**Co je MCP:**
+- Standardizovaný protokol mezi AI modely a externími zdroji dat/nástrojů
+- Nahrazuje proprietární tool calling u každého providera
+- Funguje jako „USB-C pro AI integrace"
+
+```typescript
+// MCP server – vystavení databáze pro AI
+import { MCPServer, Tool } from "@modelcontextprotocol/sdk";
+
+const server = new MCPServer({
+  name: "my-database",
+  tools: [
+    new Tool({
+      name: "query_users",
+      description: "Query users from the database",
+      inputSchema: { type: "object", properties: { filter: { type: "string" } } },
+      handler: async ({ filter }) => {
+        return await db.users.findMany({ where: filter });
+      }
+    })
+  ]
+});
+
+// Jakýkoli MCP-kompatibilní model (Claude, GPT-5, Gemini...) ho pak použije
+```
+
+**Ekosystém MCP (únor 2026):**
+- ✅ Claude (Anthropic) – nativní podpora
+- ✅ GitHub Copilot – MCP plugin system
+- ✅ Cursor – MCP jako základ pro extensions
+- ✅ GPT-5.3-Codex – MCP tool calling
+- ✅ 500+ community MCP serverů (GitHub, Jira, Slack, Figma, AWS, Postgres...)
+
+**Dopad:** Vývojáři píší MCP server jednou → AI asistenti z jakékoli platformy ho mohou použít.
+
+---
+
+### 4. „Vibe Coding" – Nový Development Paradigm (únor 2026)
+
+**Kategorie:** capabilities | **Datum:** únor 2026 (mainstream)
+
+Pojem **„vibe coding"** (poprvé zmíněn Andreje Karpathym v únoru 2025) označuje přístup, kdy vývojáři **popisují záměr přirozeným jazykem** a nechávají AI generovat a iterovat kód – bez detailního psaní specifikací.
+
+**Charakteristiky:**
+- Vývojář popisuje „co chce cítit" aplikace (UX, flow, business logika)
+- AI generuje první implementaci
+- Vývojář iteruje konverzací, ne editací kódu přímo
+- Testuje výsledek, ne kód samotný
+
+**Typický vibe coding workflow:**
+```
+1. "Chci chat aplikaci, kde uživatelé vidí kdo píše v reálném čase"
+   → AI generuje: Next.js + WebSockets + UI
+2. "Líbí se mi, ale tlačítko Send je moc malé a chci dark mode"
+   → AI upraví styly, přidá dark mode toggle
+3. "Přidej rate limiting a autentizaci"
+   → AI přidá auth middleware, Redis rate limiter
+4. Deploy → hotovo
+```
+
+**Nástroje pro vibe coding:**
+- **Cursor** – nejoblíbenější IDE pro vibe coding
+- **v0.dev** – UI komponenty z popisu
+- **Replit Agent** – celá aplikace z promptu
+- **GitHub Copilot Workspace** – od issue k PR
+
+**Kontroverze:** Vibe coding je výborný pro prototypy, ale vyžaduje code review pro produkci.
+
+---
+
+### 5. OpenAI Deep Research & Agentic Products v Produkci (únor 2026)
+
+**Kategorie:** tools | **Datum:** únor 2026
+
+**OpenAI** rozšířil svůj ekosystém **agentních produktů** s důrazem na production deployment:
+
+**Deep Research:**
+- AI agent pro hluboký průzkum témat (hodiny práce za minuty)
+- Čte, analyzuje a syntetizuje desítky zdrojů
+- Generuje strukturované reporty s citacemi
+- Dostupný přes API pro vlastní aplikace
+
+**Praktické použití pro vývojáře:**
+```javascript
+// Deep Research API (únor 2026)
+const research = await openai.research.create({
+  query: "Nejlepší architekturní vzory pro real-time collaborative editing v 2026",
+  depth: "comprehensive",
+  sources: ["academic", "technical-blogs", "github"],
+  output_format: "structured_report"
+});
+// Vrátí: přehled + srovnání + doporučení + seznam zdrojů
+```
+
+**Operator (general availability):**
+- AI agent ovládající webový prohlížeč autonomně
+- Dělá nákupy, vyplňuje formuláře, naviguje aplikace
+- Integrace s podnikovými systémy (Salesforce, SAP...)
+- Audit trail pro enterprise compliance
+
+**Dopad na vývojáře:**
+- Automatizace QA testingu přes reálný prohlížeč
+- Automatické data gathering pro machine learning
+- End-to-end business process automation
 
 ---
 

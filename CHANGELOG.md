@@ -2,7 +2,33 @@
 
 Všechny významné změny v tomto projektu.
 
-## [26.2.2026]
+## [26.2.2026] - Automatická aktualizace
+
+### Přidáno
+
+- Nová sekce v TRENDS.md: **Update Únor 2026** s 5 klíčovými trendy z 12.–26. 2. 2026:
+  - **Claude 3.7 Sonnet** – reasoning model ve střední cenové kategorii (Anthropic, únor 2026)
+  - **Gemini 2.5 Pro** – rekordní 10M token context window (Google, únor 2026)
+  - **Model Context Protocol (MCP)** – nový průmyslový standard pro AI integrace
+  - **„Vibe Coding"** – nový development paradigm pro rapid prototyping
+  - **OpenAI Deep Research & Operator** – agentní produkty v produkci
+- Aktualizace `MODEL-RECOMMENDATIONS.md`:
+  - Přidán Claude Sonnet 3.7 s extended thinking do sekce Reasoning & Chat
+  - Přidán Gemini 2.5 Pro do sekce Multimodal
+  - Aktualizovány srovnávací tabulky use-case doporučení
+  - Přidány nové modely do cenového přehledu
+- Aktualizace `README.md`:
+  - Zmínka Claude Sonnet 3.7 v sekci AI Agents s Tool Calling
+  - Zmínka Gemini 2.5 Pro a MCP v sekci Context Management & RAG 2.0
+- Aktualizace timeline milníků v TRENDS.md (Q1 2026)
+
+### Shrnutí
+
+Únorová aktualizace přináší 5 nových trendů z posledních 2 týdnů (12.–26. 2. 2026). Klíčové: Claude 3.7 Sonnet přináší reasoning do střední cenové kategorie, Gemini 2.5 Pro nastavuje rekord s 10M token context window, a Model Context Protocol se stává de facto standardem pro AI integrace.
+
+---
+
+
 
 ### Přidáno
 

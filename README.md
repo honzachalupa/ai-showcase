@@ -8,6 +8,7 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 - **OpenAI o1** a **o3-mini** - reasoning modely s deep thinking (2025)
 - **Anthropic Claude Opus 4** - průlom v coding capabilities (leden 2026)
+- **Claude Sonnet 3.7** - reasoning i v levnějším modelu (únor 2026) ⭐
 - **Google Gemini 2.0 Flash** - nejrychlejší multimodální model
 - **Multi-agent orchestration** - autonomní týmy AI agentů
 - **Computer use API** - AI ovládá počítač (Anthropic, prosinec 2025)
@@ -42,7 +43,8 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 ### 5. **Context Management & RAG 2.0**
 
-- **Infinite context** - Gemini 2.0 (2M tokens), Claude Opus 4 (1M tokens)
+- **Infinite context** - Gemini 2.5 Pro (10M tokens), Gemini 2.0 Flash (2M tokens), Claude Opus 4 (1M tokens) ⭐
+- **Model Context Protocol (MCP)** - nový průmyslový standard pro AI integrace (únor 2026) ⭐
 - **GraphRAG** - knowledge graphs místo jen vectors
 - **Hybrid search** - kombinace semantic + keyword + graph
 - **Agentic RAG** - AI rozhoduje, kdy a co načíst

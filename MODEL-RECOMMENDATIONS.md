@@ -16,12 +16,14 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Vynikající v math, coding, visual tasks
 - Cena: $$
 
-**2. OpenAI o3** (leden 2025)
+**2. Claude Sonnet 3.7** (únor 2026) ⭐ **NOVÉ**
 
-- Nejsilnější reasoning model
-- 20% méně chyb než o1 na složité úlohy
-- Ideální pro: complex debugging, multi-faceted analysis
-- Cena: $$$$
+- Reasoning model ve střední cenové kategorii
+- Extended thinking mode (poprvé v non-Opus modelu)
+- 200k token context
+- 3× rychlejší než Opus 4
+- Computer Use API podpora
+- Cena: $$
 
 **3. DeepSeek R1** (open-source alternativa)
 
@@ -58,7 +60,16 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ### Multimodal (Vision, Audio, Video)
 
-**1. Gemini 2.0 Flash** (nejlepší)
+**1. Gemini 2.5 Pro** (únor 2026) ⭐ **NOVÉ**
+
+- **10M token context window** (rekordní)
+- Native video input s pochopením dlouhých videí
+- Vylepšený multimodal reasoning
+- Grounding v Google Search real-time
+- Enterprise SLA
+- Cena: $$$
+
+**2. Gemini 2.0 Flash** (stále dostupný)
 
 - 2M token context (největší)
 - Native vision, audio, video
@@ -66,7 +77,7 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Zdarma pro developery (s limity)
 - Cena: $ / Free tier
 
-**2. GPT-4o** (alternativa)
+**3. GPT-4o** (alternativa)
 
 - Dobrý vision support
 - Audio input/output
@@ -81,9 +92,10 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Streaming support
 - Cena: $$$
 
-**2. Claude Sonnet 3.7** (levnější alternativa)
+**2. Claude Sonnet 3.7** (levnější alternativa) ⭐ **NOVÉ**
 
 - Rychlejší než Opus 4
+- Extended thinking mode
 - Stále velmi dobrá kvalita
 - Prompt caching
 - Cena: $$
@@ -122,10 +134,10 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | --------------------- | ---------------- | -------------------- | -------------- |
 | **Complex debugging** | o3               | o4-mini              | DeepSeek R1    |
 | **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -              |
-| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3         |
+| **Coding assistant**  | Claude Opus 4    | Claude Sonnet 3.7    | Qwen 3         |
 | **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4        |
-| **Multimodal**        | Gemini 2.0 Flash | GPT-4o               | -              |
-| **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k) |
+| **Multimodal**        | Gemini 2.5 Pro   | Gemini 2.0 Flash     | -              |
+| **Large context**     | Gemini 2.5 (10M) | Claude Opus 4 (1M)   | Llama 4 (128k) |
 | **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4        |
 
 ## 💰 Cenové srovnání (přibližné)
@@ -139,7 +151,8 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | **o3-mini**           | $4     | $16               | 128k               |
 | **o1-mini**           | $3     | $12               | 128k               |
 | **Claude Opus 4**     | $15    | $75               | 1M                 |
-| **Claude Sonnet 3.7** | $3     | $15               | 200k               |
+| **Claude Sonnet 3.7** ⭐ | $3  | $15               | 200k               |
+| **Gemini 2.5 Pro** ⭐  | $7    | $21               | 10M                |
 | **GPT-4o**            | $5     | $15               | 128k               |
 | **Gemini 2.0 Flash**  | $0.075 | $0.30             | 2M                 |
 | **DeepSeek R1**       | Free   | Free              | 64k                |
@@ -164,6 +177,9 @@ model: "gpt-4o";
 // Coding: Claude Opus 4
 model: "claude-opus-4";
 
+// Coding (balanced): Claude Sonnet 3.7 (nové!)
+model: "claude-sonnet-3-7";
+
 // Chat: GPT-4o
 model: "gpt-4o";
 
@@ -172,6 +188,9 @@ model: "o4-mini";
 
 // Agentic coding: GPT-5.3-Codex
 model: "gpt-5.3-codex";
+
+// Large context / multimodal: Gemini 2.5 Pro (nové!)
+model: "gemini-2.5-pro";
 ```
 
 ### Privacy-first / On-premise
@@ -192,6 +211,11 @@ model: "deepseek-r1:70b";
 Tento dokument je automaticky aktualizován každé 2 týdny pomocí GitHub Actions workflow.
 
 **Poslední aktualizace:** 26.2.2026
+
+### ⭐ Novinky v této aktualizaci (únor 2026)
+- Přidán **Claude Sonnet 3.7** – reasoning za cenu střední třídy
+- Přidán **Gemini 2.5 Pro** – rekordní 10M token context window
+- Aktualizovány srovnávací tabulky a doporučení pro projekty
 
 ## 📚 Další zdroje
 
