@@ -16,7 +16,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Vynikající v math, coding, visual tasks
 - Cena: $$
 
-**2. OpenAI o3** (leden 2025)
+**2. Grok 3 Thinking** (nový, únor 2026) 🆕
+
+- Reasoning model od xAI s nativním thinking módem
+- 88.9 % na AIME 2025 — silný výsledek
+- 131k token context window
+- OpenAI-compatible API přes api.x.ai
+- Cena: $$$
+
+**3. OpenAI o3** (leden 2025)
 
 - Nejsilnější reasoning model
 - 20% méně chyb než o1 na složité úlohy
@@ -58,7 +66,15 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ### Multimodal (Vision, Audio, Video)
 
-**1. Gemini 2.0 Flash** (nejlepší)
+**1. Gemini 2.0 Pro** (nový, únor 2026) 🆕
+
+- 2M token context (největší)
+- Profesionální tier s vyšší přesností než Flash
+- Deep research mode pro rozsáhlé dokumenty
+- Google Search grounding (real-time data)
+- Cena: $$$
+
+**2. Gemini 2.0 Flash** (nejrychlejší)
 
 - 2M token context (největší)
 - Native vision, audio, video
@@ -66,7 +82,7 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Zdarma pro developery (s limity)
 - Cena: $ / Free tier
 
-**2. GPT-4o** (alternativa)
+**3. GPT-4o** (alternativa)
 
 - Dobrý vision support
 - Audio input/output
@@ -104,13 +120,21 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 - Quantized verze běží na M3 Mac
 - Cena: Free
 
-**2. Qwen 3** (72B)
+**2. Mistral Small 3.1** (24B) 🆕
+
+- Nový, kompaktní model s vision podporou
+- 128k token context
+- Běží lokálně na M-series Mac nebo consumer GPU
+- Apache 2.0 licence
+- Cena: Free
+
+**3. Qwen 3** (72B)
 
 - Nejlepší open-source coding model
 - Multilingual support
 - Cena: Free
 
-**3. DeepSeek R1** (reasoning)
+**4. DeepSeek R1** (reasoning)
 
 - Open-source reasoning
 - Běží na consumer hardware
@@ -118,33 +142,39 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 
 ## 📊 Srovnávací tabulka
 
-| Use Case              | Nejlepší volba   | Levnější alternativa | Open-source    |
-| --------------------- | ---------------- | -------------------- | -------------- |
-| **Complex debugging** | o3               | o4-mini              | DeepSeek R1    |
-| **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -              |
-| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3         |
-| **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4        |
-| **Multimodal**        | Gemini 2.0 Flash | GPT-4o               | -              |
-| **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k) |
-| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4        |
+| Use Case              | Nejlepší volba   | Levnější alternativa | Open-source       |
+| --------------------- | ---------------- | -------------------- | ----------------- |
+| **Complex debugging** | o3               | o4-mini              | DeepSeek R1       |
+| **Agentic coding**    | GPT-5.3-Codex    | o4-mini              | -                 |
+| **Coding assistant**  | Claude Opus 4    | GPT-4o               | Qwen 3            |
+| **Chatbot**           | GPT-4o           | Claude Sonnet 3.7    | Llama 4           |
+| **Multimodal**        | Gemini 2.0 Pro   | Gemini 2.0 Flash     | Mistral Small 3.1 |
+| **Large context**     | Gemini 2.0 (2M)  | Claude Opus 4 (1M)   | Llama 4 (128k)    |
+| **Cost-sensitive**    | Gemini 2.0 Flash | Claude Sonnet 3.7    | Llama 4           |
+| **Reasoning, STEM**   | o4-mini          | Grok 3 Thinking      | DeepSeek R1       |
+| **On-device**         | Mistral Small 3.1| Qwen 3               | DeepSeek R1       |
 
 ## 💰 Cenové srovnání (přibližné)
 
-| Model                 | Model  | Input (1M tokens) | Output (1M tokens) | Context |
-| --------------------- | ------ | ----------------- | ------------------ | ------- |
-| **GPT-5.3-Codex**     | $25    | $100              | 128k               |
-| **o4-mini**           | $3     | $12               | 128k               |
-| **o3**                | $20    | $80               | 128k               |
-| **o1**                | $15    | $60               | 128k               |
-| **o3-mini**           | $4     | $16               | 128k               |
-| **o1-mini**           | $3     | $12               | 128k               |
-| **Claude Opus 4**     | $15    | $75               | 1M                 |
-| **Claude Sonnet 3.7** | $3     | $15               | 200k               |
-| **GPT-4o**            | $5     | $15               | 128k               |
-| **Gemini 2.0 Flash**  | $0.075 | $0.30             | 2M                 |
-| **DeepSeek R1**       | Free   | Free              | 64k                |
-| **Llama 4**           | Free   | Free              | 128k               |
-| **Qwen 3**            | Free   | Free              | 32k                |
+| Model                  | Input (1M tokens) | Output (1M tokens) | Context |
+| ---------------------- | ----------------- | ------------------ | ------- |
+| **GPT-5.3-Codex**      | $25               | $100               | 128k    |
+| **o4-mini**            | $3                | $12                | 128k    |
+| **o3**                 | $20               | $80                | 128k    |
+| **o1**                 | $15               | $60                | 128k    |
+| **o3-mini**            | $4                | $16                | 128k    |
+| **o1-mini**            | $3                | $12                | 128k    |
+| **Grok 3** 🆕          | $5                | $25                | 131k    |
+| **Grok 3 Thinking** 🆕 | $10               | $50                | 131k    |
+| **Claude Opus 4**      | $15               | $75                | 1M      |
+| **Claude Sonnet 3.7**  | $3                | $15                | 200k    |
+| **GPT-4o**             | $5                | $15                | 128k    |
+| **Gemini 2.0 Pro** 🆕  | $1.25             | $5                 | 2M      |
+| **Gemini 2.0 Flash**   | $0.075            | $0.30              | 2M      |
+| **DeepSeek R1**        | Free              | Free               | 64k     |
+| **Llama 4**            | Free              | Free               | 128k    |
+| **Mistral Small 3.1** 🆕| Free             | Free               | 128k    |
+| **Qwen 3**             | Free              | Free               | 32k     |
 
 ## 🎯 Doporučení podle projektu
 
@@ -172,6 +202,9 @@ model: "o4-mini";
 
 // Agentic coding: GPT-5.3-Codex
 model: "gpt-5.3-codex";
+
+// Multimodal + velký kontext: Gemini 2.0 Pro (nové)
+model: "gemini-2.0-pro";
 ```
 
 ### Privacy-first / On-premise
@@ -185,13 +218,16 @@ model: "llama4:405b";
 
 // Reasoning: DeepSeek R1
 model: "deepseek-r1:70b";
+
+// Kompaktní multimodal (nové): Mistral Small 3.1
+model = "mistral-small3.1";
 ```
 
 ## 🔄 Automatická aktualizace
 
 Tento dokument je automaticky aktualizován každé 2 týdny pomocí GitHub Actions workflow.
 
-**Poslední aktualizace:** 26.2.2026
+**Poslední aktualizace:** 26.02.2026
 
 ## 📚 Další zdroje
 

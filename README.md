@@ -1,6 +1,6 @@
 # AI-Assisted Development - Trendy 2025-2026
 
-Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
+Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno 26. února 2026).
 
 ## 🚀 Hlavní trendy
 
@@ -8,18 +8,20 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 
 - **OpenAI o1** a **o3-mini** - reasoning modely s deep thinking (2025)
 - **Anthropic Claude Opus 4** - průlom v coding capabilities (leden 2026)
-- **Google Gemini 2.0 Flash** - nejrychlejší multimodální model
+- **Google Gemini 2.0 Pro** - profesionální multimodální model s 2M kontextem (únor 2026) 🆕
+- **Grok 3** (xAI) - nový reasoning model s thinking módem (únor 2026) 🆕
 - **Multi-agent orchestration** - autonomní týmy AI agentů
 - **Computer use API** - AI ovládá počítač (Anthropic, prosinec 2025)
 - 📁 Ukázka: `./01-ai-agents/`
 
 ### 2. **AI Coding Assistants - Agentic Era**
 
-- **Cursor Composer Mode** - autonomní multi-file refactoring
+- **Cursor 0.46** - Background Agent Mode pro paralelní AI úlohy (únor 2026) 🆕
 - **GitHub Copilot Workspace** - od issue k PR automaticky
 - **Devin AI** - plně autonomní AI software engineer (2025)
 - **Replit Agent** - build celé aplikace z promptu
 - **v0.dev** - Vercel's AI web builder (production-ready)
+- **OpenAI Responses API** - nová agentic infrastruktura (únor 2026) 🆕
 - 📁 Ukázka: `./02-coding-assistants/`
 
 ### 3. **Prompt Engineering 2.0**

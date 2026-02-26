@@ -559,6 +559,205 @@ const result = await anthropic.messages.create({
 
 ---
 
+---
+
+## 📅 Update Únor 2026
+
+*Aktualizováno: 26.02.2026 — přehled nejvýznamnějších AI novinek za poslední 2 týdny (12.–26. února 2026)*
+
+---
+
+### 1. Grok 3 od xAI — Nový Lídr v Reasoning (únor 2026)
+
+**Kategorie:** models  
+**Vydáno:** 17. února 2026
+
+xAI (společnost Elona Muska) vydala model **Grok 3**, který zaujal přední příčky klíčových benchmarků. Model přichází s nativním "thinking" módem — podobně jako DeepSeek R1 a OpenAI o3 — a zaměřuje se na složité úlohy vyžadující víceúrovňové uvažování.
+
+**Klíčové vlastnosti:**
+- **Grok 3 Thinking** — reasoning mód s viditelným thought processem
+- **88.9 % na AIME 2025** — překonává předchozí generaci modelů
+- **131k token context window**
+- Integrace s platformou X (Twitter) a xAI API
+- Dostupný přes `api.x.ai` s kompatibilitou OpenAI SDK
+
+**Praktický dopad pro developery:**
+- Konkurenceschopný reasoning model dostupný přes standardní OpenAI-compatible API
+- Dobré výsledky v math a STEM oblastech
+- Alternativa k o3/o4-mini pro specializované reasoning úlohy
+
+**Porovnání s předchozím stavem:**
+- Grok 2 byl srovnatelný s GPT-4 Turbo; Grok 3 aspiruje na o3 úroveň
+- xAI se stává relevantní alternativou k OpenAI a Anthropic
+
+```javascript
+// Grok 3 přes xAI API (OpenAI-compatible)
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.XAI_API_KEY,
+  baseURL: "https://api.x.ai/v1",
+});
+
+const response = await client.chat.completions.create({
+  model: "grok-3-thinking",
+  messages: [{ role: "user", content: "Vyřeš tento problém krok za krokem..." }],
+});
+```
+
+---
+
+### 2. Google Gemini 2.0 Pro — Profesionální Tier s 2M Kontextem (únor 2026)
+
+**Kategorie:** models  
+**Vydáno:** 12. února 2026
+
+Google vydal **Gemini 2.0 Pro** jako plnohodnotný profesionální model, navazující na Gemini 2.0 Flash. Model kombinuje rychlost 2.0 Flash s výrazně vyšší kvalitou odpovědí, přičemž zachovává rekordní **2M token context window**.
+
+**Klíčové vlastnosti:**
+- **2M tokenů** v kontextovém okně — stále největší na trhu
+- Výrazně lepší code generation než Flash varianta
+- Deep research mode — analyzuje rozsáhlé dokumenty a codebases
+- Native multimodal — video, audio, obrázky, PDF
+- Google Search grounding (real-time informace)
+- Zlepšená schopnost instruction following
+
+**Praktický dopad pro developery:**
+- Ideální pro analýzu celých repozitářů bez chunking
+- Vhodný pro tech dokumentaci a rozsáhlé code review
+- Multimodal debugging — AI analyzuje screenshoty, logy, diagramy najednou
+
+**Porovnání s předchozím stavem:**
+- Gemini 2.0 Flash: rychlý a levný, ale nižší přesnost
+- Gemini 2.0 Pro: enterprise-grade s lepší coding kvalitou
+
+---
+
+### 3. Cursor 0.46 — Agent Mode s Background Tasks (únor 2026)
+
+**Kategorie:** tools  
+**Vydáno:** 18. února 2026
+
+**Cursor** vydal verzi **0.46** s klíčovou novinkou: **Background Agent Mode**, který umožňuje spouštět AI coding tasks na pozadí, zatímco vývojář pracuje na jiném. Agent pracuje autonomně, spouští testy, opravuje chyby a vytváří PR.
+
+**Klíčové vlastnosti:**
+- **Background Agents** — více paralelních AI úloh najednou
+- **Agent runs in cloud** — AI agent pracuje na cloudovém sandboxu, ne na lokálním stroji
+- Automatické spouštění testů a CI/CD
+- Notifikace při dokončení nebo blokaci
+- Integrace s GitHub — automatické PR vytváření
+
+**Praktický dopad pro developery:**
+- Vývojář může zadat 3–5 paralelních úloh a pracovat na hlavní feature
+- Snížení "waiting time" při iteraci kódu
+- Posun od pair-programming k "delegování senior devovi"
+
+**Porovnání s předchozím stavem:**
+- Cursor 0.44: synchronní AI v rámci aktivního souboru
+- Cursor 0.46: asynchronní multi-task AI development
+
+---
+
+### 4. Mistral AI — Mistral Small 3.1 pro On-Device AI (únor 2026)
+
+**Kategorie:** models  
+**Vydáno:** 14. února 2026
+
+Francouzská AI firma **Mistral AI** vydala **Mistral Small 3.1** — kompaktní model (24B parametrů) optimalizovaný pro on-device nasazení. Model překvapuje výkonem v poměru k velikosti.
+
+**Klíčové vlastnosti:**
+- **24B parametrů** — běží na consumer GPU nebo M-series Mac
+- Podporuje **128k tokenů** kontextu
+- Multimodal schopnosti (vision)
+- Výjimečný výkon na coding úlohách v poměru k velikosti
+- Apache 2.0 licence — plně open-source
+- Dostupný přes Ollama: `ollama pull mistral-small3.1`
+
+**Praktický dopad pro developery:**
+- Privacy-first AI assistant bez nutnosti cloudového API
+- Vhodný pro embedded AI v aplikacích (local inference)
+- Nízké nároky na hardware pro slušný coding asistent
+
+**Porovnání s předchozím stavem:**
+- Mistral Large: výkonný, ale pouze cloud
+- Mistral Small 3.1: dobrý kompromis — lokální, multimodal, coding-capable
+
+```bash
+# Instalace a spuštění lokálně
+ollama pull mistral-small3.1
+ollama run mistral-small3.1
+```
+
+---
+
+### 5. OpenAI Responses API — Nová Agentic Infrastructure (únor 2026)
+
+**Kategorie:** frameworks  
+**Vydáno:** 11. února 2026
+
+OpenAI představilo **Responses API** jako moderní nástupce Chat Completions API, navržený pro agentic workflows. Nové API sjednocuje tool calling, file search a code execution do jediného endpointu.
+
+**Klíčové vlastnosti:**
+- **Unified API** pro tool calling, retrieval a code execution
+- **Built-in tools:** web search, file search, code interpreter, computer use
+- Stateful sessions — API si pamatuje kontext bez nutnosti posílat celou historii
+- Streaming events pro real-time agentic workflows
+- Zpětně kompatibilní s OpenAI Assistants API
+
+**Praktický dopad pro developery:**
+- Výrazně jednodušší implementace AI agentů
+- Méně boilerplate kódu pro komplexní workflows
+- Nativní integrace nástrojů bez custom tool implementations
+
+```javascript
+// OpenAI Responses API — agentic workflow
+import OpenAI from "openai";
+const client = new OpenAI();
+
+const response = await client.responses.create({
+  model: "gpt-5.3-codex",
+  tools: [
+    { type: "web_search_preview" },
+    { type: "code_interpreter" },
+    { type: "file_search", vector_store_ids: ["vs_abc123"] },
+  ],
+  input: "Analyzuj tento codebase a navrhni refactoring pro lepší performance",
+});
+```
+
+**Porovnání s předchozím stavem:**
+- Assistants API: komplexní, stateful, ale těžkopádné
+- Chat Completions API: jednoduché, ale bez native agentic support
+- Responses API: nejlepší z obou světů
+
+---
+
+## 📊 Aktualizovaný Model Comparison (únor 2026)
+
+### Cloud Models — aktuální stav
+
+| Model | Coding | Reasoning | Context | Cena | Best for |
+|-------|--------|-----------|---------|------|----------|
+| GPT-5.3-Codex | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 128k | $$$$$ | Agentic coding |
+| Claude Opus 4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 1M | $$$$ | Complex coding |
+| o4-mini | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 128k | $$ | Reasoning, STEM |
+| **Gemini 2.0 Pro** 🆕 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 2M | $$$ | Large codebase |
+| **Grok 3** 🆕 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 131k | $$$ | Reasoning, STEM |
+| Gemini 2.0 Flash | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 2M | $ | Multimodal |
+| DeepSeek R1 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 64k | Free | Open reasoning |
+
+### Open-Source Models — aktuální stav
+
+| Model | Coding | Reasoning | Context | License | Best for |
+|-------|--------|-----------|---------|---------|----------|
+| **Mistral Small 3.1** 🆕 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 128k | Apache 2.0 | On-device |
+| WizardCoder 34B | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 32k | Llama 3 | Complex tasks |
+| StarCoder 2 15B | ⭐⭐⭐⭐ | ⭐⭐⭐ | 16k | Apache 2.0 | Code completion |
+| Qwen 3 72B | ⭐⭐⭐⭐ | ⭐⭐⭐ | 32k | Apache 2.0 | Multilingual |
+| Llama 4 405B | ⭐⭐⭐⭐ | ⭐⭐⭐ | 128k | Llama 3 | General coding |
+
+---
+
 ## 📚 Klíčové zdroje
 
 ### Dokumentace
