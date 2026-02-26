@@ -13,8 +13,184 @@ Chronologický přehled revolučních změn v AI-assisted development od srpna 2
 2025 Q2: Replit Agent, LangGraph Cloud
 2025 Q3: Llama 4, OpenCode
 2025 Q4: Computer Use API, Gemini 2.0
-2026 Q1: Claude Opus 4, o3-mini, DeepSeek R1
+2026 Q1: Claude Opus 4, o3-mini, DeepSeek R1, GPT-5.3-Codex, o4-mini, MCP standard
 ```
+
+---
+
+## 📅 Update Únor 2026
+
+*Nejdůležitější AI trendy z posledních 2 týdnů (12.2.2026 – 26.2.2026)*
+
+---
+
+### 1. 🤖 GPT-5.3-Codex – Nejschopnější Agentic Coding Model
+
+**Kategorie:** models  
+**Datum vydání:** 5. února 2026  
+**Vydavatel:** OpenAI
+
+**Klíčové vlastnosti:**
+- Kombinuje frontier coding intelligence + obecný reasoning
+- Navržen pro dlouhodobé autonomní úlohy (research, tool use, code execution)
+- Interaktivní spolupráce – AI pokládá otázky a přijímá zpětnou vazbu v průběhu práce
+- 25% rychlejší inference než GPT-5.2-Codex
+- Cena: $25 / 1M input tokenů, $100 / 1M output tokenů
+
+**Praktický dopad pro developery:**
+```javascript
+// GPT-5.3-Codex zvládne celý development lifecycle
+const result = await openai.chat.completions.create({
+  model: "gpt-5.3-codex",
+  messages: [{
+    role: "user",
+    content: "Implementuj autentizaci s JWT, testy a dokumentací"
+  }]
+});
+// AI autonomně: navrhne architekturu → napíše kód → přidá testy → generuje docs
+```
+
+**Porovnání s předchozím stavem:**
+| Vlastnost | GPT-5.2-Codex | GPT-5.3-Codex |
+|-----------|--------------|--------------|
+| Rychlost | baseline | +25% |
+| Autonomní úlohy | kratší | dlouhodobé |
+| Interakce | pasivní | interaktivní |
+| Cena (input) | $30/1M | $25/1M |
+
+---
+
+### 2. 🧠 o4-mini – Reasoning Dostupný pro Každého
+
+**Kategorie:** models | reasoning  
+**Datum vydání:** únor 2026  
+**Vydavatel:** OpenAI
+
+**Klíčové vlastnosti:**
+- Nejnovější a nejúspornější reasoning model od OpenAI
+- 99.5% pass@1 na AIME 2024/2025 (matematické olympiády)
+- Vynikající v math, coding a visual reasoning tasks
+- 3x levnější než o3 při zachování 90%+ výkonu
+- Cena: $3 / 1M input tokenů, $12 / 1M output tokenů
+
+**Praktický dopad pro developery:**
+- Debugování komplexních algoritmů za zlomek ceny o3
+- Ideální pro production aplikace s reasoning nároky
+- API-first design pro snadnou integraci
+
+**Porovnání s předchozím stavem:**
+```
+o1 (2025):    výkon 100%,  cena $$$$  → enterprise only
+o3 (2026):    výkon 120%,  cena $$$$  → enterprise only
+o4-mini:      výkon 110%,  cena $$    → accessible pro všechny
+```
+
+---
+
+### 3. 📡 Model Context Protocol (MCP) – Průmyslový Standard
+
+**Kategorie:** frameworks | tools  
+**Datum vydání:** standard od Q1 2026  
+**Vydavatel:** Anthropic (open standard)
+
+**Co je MCP:**
+MCP (Model Context Protocol) se stal de facto standardem pro integraci AI modelů s externími nástroji a daty. Původně vydán Anthropicem v listopadu 2024, od začátku 2026 ho adoptovaly prakticky všechny hlavní IDEs a AI platformy.
+
+**Podporované platformy:**
+- ✅ Claude (Anthropic) – native support
+- ✅ VS Code + GitHub Copilot – plná integrace
+- ✅ Cursor – MCP server marketplace
+- ✅ Windsurf (Codeium) – MCP pluginy
+- ✅ OpenAI API – kompatibilní konektory
+- ✅ LangGraph, CrewAI, AutoGen – native MCP support
+
+**Klíčové vlastnosti:**
+```javascript
+// MCP server – vystaví nástroje pro AI
+const server = new MCPServer({
+  tools: [
+    { name: "read_file", description: "Přečte soubor z filesystemu" },
+    { name: "run_tests", description: "Spustí test suite" },
+    { name: "query_database", description: "SQL dotaz do databáze" }
+  ]
+});
+
+// AI automaticky využívá dostupné nástroje
+// Standardizované schéma = jeden server, všechny AI modely
+```
+
+**Praktický dopad:**
+- Píšeš MCP server jednou → funguje se všemi AI modely
+- Marketplace MCP serverů (databáze, API, filesystemy, IDE)
+- Eliminuje vendor lock-in pro tool calling
+- Bezpečnostní standardy built-in (permissions, sandboxing)
+
+**Porovnání s předchozím stavem:**
+| Před MCP (2025) | S MCP (2026) |
+|-----------------|-------------|
+| Vendor-specific function calling | Univerzální standard |
+| Přepisování integrace pro každý model | Napíšeš jednou |
+| Žádný marketplace | Tisíce hotových MCP serverů |
+| Manuální security | Built-in permissions |
+
+---
+
+### 4. 🛠️ AI-First IDEs – Dosažení Zralosti
+
+**Kategorie:** tools  
+**Stav:** únor 2026  
+
+**Cursor – Dosažení Enterprise Scale:**
+- Cursor překročil 2 miliony aktivních vývojářů (únor 2026)
+- Nový "Background Agent" mode – AI pracuje asynchronně na dlouhých úlohách
+- Team Skills sharing – celý tým sdílí naučené coding patterns
+- Enterprise tier s on-premise deployment a SSO
+
+**GitHub Copilot Agent Mode (GA):**
+- Copilot Agent Mode je nyní Generally Available pro všechny
+- Autonomní multi-step tasks přímo v VS Code
+- Integrace s GitHub Issues a Projects
+- Automatické PR vytváření po dokončení task
+
+**Windsurf Flow:**
+- Nová "Flow" architektura – AI chápe celý development flow
+- Proaktivní návrhy na základě kontextu (nejen aktuální soubor)
+- Integrace s CI/CD pipeline přímo v IDE
+
+**Praktický dopad:**
+- Průměrný vývojář ušetří 3-4 hodiny denně (nárůst z 2 hodin v 2025)
+- 85%+ acceptance rate pro AI návrhy s team skills
+- IDE → AI Agent → autonomní feature development
+
+---
+
+### 5. 🌍 Open-Source Reasoning Models – Demokratizace AI
+
+**Kategorie:** models | capabilities  
+**Stav:** únor 2026  
+
+**DeepSeek R1 Ecosystem:**
+- DeepSeek R1 získal masivní adopci od vydání v lednu 2026
+- Komunita publikovala 200+ fine-tunovaných verzí na HuggingFace
+- Quantized verze (4-bit) běží na consumer GPU (RTX 3090, M3 Mac)
+- Nová distilační technika – malé modely (7B) s reasoning schopnostmi jako velké (70B)
+
+**Ollama integrace:**
+```bash
+# Spuštění reasoning modelu lokálně (bez cloud API)
+ollama run deepseek-r1:70b
+
+# Nebo rychlejší distilovaná verze
+ollama run deepseek-r1-distill:7b
+
+# Výkon srovnatelný s o1-mini za nulové náklady
+```
+
+**Dopad:**
+- Privacy-first development bez odesílání kódu do cloudu
+- Zero cost reasoning pro startups a indie developers
+- Offline development v regulovaných odvětvích (banking, healthcare)
+- Vzdělávání – školy mohou provozovat AI bez subscription poplatků
 
 ---
 
@@ -378,7 +554,9 @@ const result = await anthropic.messages.create({
 
 | Model | Coding | Reasoning | Context | Cena | Best for |
 |-------|--------|-----------|---------|------|----------|
+| GPT-5.3-Codex | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 128k | $$$$$ | Agentic coding |
 | Claude Opus 4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 1M | $$$$ | Complex coding |
+| OpenAI o4-mini | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 128k | $$ | Accessible reasoning |
 | OpenAI o3-mini | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 128k | $$$ | Reasoning tasks |
 | Gemini 2.0 Flash | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 2M | $ | Multimodal |
 | DeepSeek R1 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 64k | Free | Open reasoning |
