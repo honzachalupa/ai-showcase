@@ -1,4 +1,3 @@
-```markdown
 # AI Trendy ve Vývoji SW - Kompletní Přehled (2024-2026)
 
 Chronologický přehled revolučních změn v AI-assisted development od srpna 2024 do února 2026.
@@ -77,4 +76,3 @@ Chronologický přehled revolučních změn v AI-assisted development od srpna 2
 - **Srovnání s předešlým stavem:**
   - Výrazné zlepšení oproti předchozím modelům
 
-```

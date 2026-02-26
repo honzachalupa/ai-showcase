@@ -1,4 +1,3 @@
-```markdown
 # AI-Assisted Development - Trendy 2025-2026
 
 Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
@@ -48,5 +47,5 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 - **Hybrid search** - kombinace semantic + keyword + graph
 - **Agentic RAG** - AI rozhoduje, kdy a co načíst
 - **Real-time codebase sync** - AI vidí změny okamžitě
-- 📁 Ukázka: `./05-context
-```
+- 📁 Ukázka: `./05-context-management/`
+

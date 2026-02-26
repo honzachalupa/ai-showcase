@@ -1,4 +1,3 @@
-```markdown
 # Doporučené AI Modely (Únor 2026)
 
 **Poslední aktualizace:** 26. února 2026
@@ -105,4 +104,3 @@ Tento dokument obsahuje aktuální doporučení pro výběr AI modelů podle use
 | **Chatbot**           | GPT-6            | Claude Opus 5 Beta   | Llama 4        |
 | **Multimodal**        | GPT-6            | Gemini 2.0 Flash     | -              |
 
-```
