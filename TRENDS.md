@@ -1,4 +1,5 @@
 ```markdown
+```markdown
 # AI Trendy ve Vývoji SW - Kompletní Přehled (2024-2026)
 
 Chronologický přehled revolučních změn v AI-assisted development od srpna 2024 do února 2026.
@@ -77,4 +78,69 @@ Chronologický přehled revolučních změn v AI-assisted development od srpna 2
 - **Srovnání s předešlým stavem:**
   - Výrazné zlepšení oproti předchozím modelům
 
+---
+
+## 📅 Update Únor 2026
+
+### 1. GitHub Copilot Workspace – „Agentic PR flow“ rozšíření (14.02.2026)
+- **Kategorie:** tools
+- **Klíčové vlastnosti:**
+  - Vylepšený převod `issue → plan → branch → PR` s multi-file změnami
+  - Lepší práce s repozitářovým kontextem (navigace napříč modulárními projekty)
+  - Integrace kontrol (lint/test) do návrhu změn
+- **Praktický dopad pro vývojáře:**
+  - Rychlejší dodávka menších až středních změn bez ručního „lepení“ commitů
+  - Snížení času na „glue work“ (boilerplate úpravy, aktualizace testů, PR popisy)
+- **Srovnání s předešlým stavem:**
+  - Posun od asistovaného doplňování kódu k poloa­utonomnímu workflow v rámci PR
+
+### 2. Cursor – stabilizace Composer/Agent režimu pro větší repozitáře (17.02.2026)
+- **Kategorie:** tools
+- **Klíčové vlastnosti:**
+  - Robustnější multi-file refactoring se sledováním závislostí
+  - Lepší „diff discipline“ (menší, review-friendly patche)
+  - Spolehlivější běh lokálních příkazů přes integrované tool calling
+- **Praktický dopad pro vývojáře:**
+  - Reálně použitelný agent pro refactoringy v produkčních codebase (méně regresí)
+  - Zrychlení údržby (rename, rozdělení modulů, upgrade knihoven)
+- **Srovnání s předešlým stavem:**
+  - Méně „chaotických“ změn a vyšší konzistence patchů oproti dřívějším agent režimům
+
+### 3. Open-source „reasoning-first“ modely – rychlá produktizace (19.02.2026)
+- **Kategorie:** models
+- **Klíčové vlastnosti:**
+  - Nové/aktualizované checkpointy zaměřené na reasoning a plánování
+  - Lepší kompatibilita s kvantizací a nasazením (vLLM/TGI)
+  - Častější vydávání „instruct“ variant pro coding a tool use
+- **Praktický dopad pro vývojáře:**
+  - Levnější self-hosted agenti pro CI úlohy (triage, test generation, code review)
+  - Snazší governance (on-prem, audit, kontrola dat)
+- **Srovnání s předešlým stavem:**
+  - Open-source se přibližuje „agentic“ workflow, které dříve dominovalo jen closed modelům
+
+### 4. Kontextová okna v praxi: „repo-wide“ práce bez agresivního RAG (21.02.2026)
+- **Kategorie:** capabilities
+- **Klíčové vlastnosti:**
+  - Širší kontexty se začínají používat na reálné monorepo úlohy (design docs + kód)
+  - Kombinace `long-context + lightweight retrieval` místo těžkých RAG pipeline
+  - Lepší stabilita při dlouhých editacích (méně „zapomínání“ instrukcí)
+- **Praktický dopad pro vývojáře:**
+  - Jednodušší architektura interních copilotů (méně komponent, méně latence)
+  - Větší úspěšnost u úloh typu „změň X napříč 30 soubory“
+- **Srovnání s předešlým stavem:**
+  - Posun od „RAG všude“ k pragmatickému mixu s důrazem na stabilní editování
+
+### 5. Testování a code review: standardizace AI „checks“ v CI (23.02.2026)
+- **Kategorie:** frameworks
+- **Klíčové vlastnosti:**
+  - Širší adopce AI kroků v CI: generování testů, návrhy fixů, security triage
+  - Lepší šablony pro „policy-based“ review (např. `no secrets`, `breaking changes`)
+  - Reporty ve formátu vhodném pro PR (komentáře + shrnutí)
+- **Praktický dopad pro vývojáře:**
+  - Méně ruční práce reviewerů, rychlejší feedback loop
+  - Včasnější odhalení regresí a bezpečnostních problémů
+- **Srovnání s předešlým stavem:**
+  - Z ad-hoc skriptů k opakovatelným pipeline krokům použitelným v produkci
+
+```
 ```
