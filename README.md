@@ -1,7 +1,8 @@
 ```markdown
+```markdown
 # AI-Assisted Development - Trendy 2025-2026
 
-Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno únor 2026).
+Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno 01.03.2026).
 
 ## 🚀 Hlavní trendy
 
@@ -21,6 +22,7 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 - **Devin AI** - plně autonomní AI software engineer (2025)
 - **Replit Agent** - build celé aplikace z promptu
 - **v0.dev** - Vercel's AI web builder (production-ready)
+- 🆕 **Repo-aware/agentické IDE nástroje** - stabilizace workflow „spec → změny → PR“ (únor–březen 2026)
 - 📁 Ukázka: `./02-coding-assistants/`
 
 ### 3. **Prompt Engineering 2.0**
@@ -48,5 +50,6 @@ Přehled klíčových trendů ve vývoji softwaru s pomocí AI (aktualizováno �
 - **Hybrid search** - kombinace semantic + keyword + graph
 - **Agentic RAG** - AI rozhoduje, kdy a co načíst
 - **Real-time codebase sync** - AI vidí změny okamžitě
-- 📁 Ukázka: `./05-context
+- 📁 Ukázka: `
+```
 ```
